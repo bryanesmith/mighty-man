@@ -1,0 +1,20 @@
+# osx
+.DS_Store
+
+# vim
+*.swp
+
+# xcode
+xcuserdata
+*.xcuserstate
+*.xcworkspace
+
+# Compiled libraries and resources
+DETest/include/*
+DETest/lib/*
+de-ios-sdk.framework
+de-ios-sdk.bundle
+
+#Cocoapods
+Podfile.lock
+Pods/
