@@ -1,0 +1,492 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		48A2B6B518359B3E00441532 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A2B6B418359B3E00441532 /* Foundation.framework */; };
+		48A2B6B718359B3E00441532 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A2B6B618359B3E00441532 /* CoreGraphics.framework */; };
+		48A2B6B918359B3E00441532 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A2B6B818359B3E00441532 /* UIKit.framework */; };
+		48A2B6BB18359B3E00441532 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A2B6BA18359B3E00441532 /* SpriteKit.framework */; };
+		48A2B6C118359B3E00441532 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 48A2B6BF18359B3E00441532 /* InfoPlist.strings */; };
+		48A2B6C318359B3E00441532 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A2B6C218359B3E00441532 /* main.m */; };
+		48A2B6C718359B3E00441532 /* BSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A2B6C618359B3E00441532 /* BSAppDelegate.m */; };
+		48A2B6CA18359B3E00441532 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48A2B6C818359B3E00441532 /* Main.storyboard */; };
+		48A2B6CD18359B3E00441532 /* BSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A2B6CC18359B3E00441532 /* BSViewController.m */; };
+		48A2B6D018359B3E00441532 /* BSMyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A2B6CF18359B3E00441532 /* BSMyScene.m */; };
+		48A2B6D218359B3E00441532 /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = 48A2B6D118359B3E00441532 /* Spaceship.png */; };
+		48A2B6D418359B3E00441532 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48A2B6D318359B3E00441532 /* Images.xcassets */; };
+		48A2B6DB18359B3E00441532 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A2B6DA18359B3E00441532 /* XCTest.framework */; };
+		48A2B6DC18359B3E00441532 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A2B6B418359B3E00441532 /* Foundation.framework */; };
+		48A2B6DD18359B3E00441532 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A2B6B818359B3E00441532 /* UIKit.framework */; };
+		48A2B6E518359B3E00441532 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 48A2B6E318359B3E00441532 /* InfoPlist.strings */; };
+		48A2B6E718359B3E00441532 /* MightyManTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A2B6E618359B3E00441532 /* MightyManTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		48A2B6DE18359B3E00441532 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 48A2B6A918359B3E00441532 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 48A2B6B018359B3E00441532;
+			remoteInfo = MightyMan;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		48A2B6B118359B3E00441532 /* MightyMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MightyMan.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		48A2B6B418359B3E00441532 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		48A2B6B618359B3E00441532 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		48A2B6B818359B3E00441532 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		48A2B6BA18359B3E00441532 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		48A2B6BE18359B3E00441532 /* MightyMan-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MightyMan-Info.plist"; sourceTree = "<group>"; };
+		48A2B6C018359B3E00441532 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		48A2B6C218359B3E00441532 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		48A2B6C418359B3E00441532 /* MightyMan-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MightyMan-Prefix.pch"; sourceTree = "<group>"; };
+		48A2B6C518359B3E00441532 /* BSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BSAppDelegate.h; sourceTree = "<group>"; };
+		48A2B6C618359B3E00441532 /* BSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BSAppDelegate.m; sourceTree = "<group>"; };
+		48A2B6C918359B3E00441532 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		48A2B6CB18359B3E00441532 /* BSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BSViewController.h; sourceTree = "<group>"; };
+		48A2B6CC18359B3E00441532 /* BSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BSViewController.m; sourceTree = "<group>"; };
+		48A2B6CE18359B3E00441532 /* BSMyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BSMyScene.h; sourceTree = "<group>"; };
+		48A2B6CF18359B3E00441532 /* BSMyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BSMyScene.m; sourceTree = "<group>"; };
+		48A2B6D118359B3E00441532 /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
+		48A2B6D318359B3E00441532 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		48A2B6D918359B3E00441532 /* MightyManTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MightyManTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		48A2B6DA18359B3E00441532 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		48A2B6E218359B3E00441532 /* MightyManTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MightyManTests-Info.plist"; sourceTree = "<group>"; };
+		48A2B6E418359B3E00441532 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		48A2B6E618359B3E00441532 /* MightyManTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MightyManTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		48A2B6AE18359B3E00441532 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48A2B6B718359B3E00441532 /* CoreGraphics.framework in Frameworks */,
+				48A2B6B918359B3E00441532 /* UIKit.framework in Frameworks */,
+				48A2B6BB18359B3E00441532 /* SpriteKit.framework in Frameworks */,
+				48A2B6B518359B3E00441532 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		48A2B6D618359B3E00441532 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48A2B6DB18359B3E00441532 /* XCTest.framework in Frameworks */,
+				48A2B6DD18359B3E00441532 /* UIKit.framework in Frameworks */,
+				48A2B6DC18359B3E00441532 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		48A2B6A818359B3E00441532 = {
+			isa = PBXGroup;
+			children = (
+				48A2B6BC18359B3E00441532 /* MightyMan */,
+				48A2B6E018359B3E00441532 /* MightyManTests */,
+				48A2B6B318359B3E00441532 /* Frameworks */,
+				48A2B6B218359B3E00441532 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		48A2B6B218359B3E00441532 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				48A2B6B118359B3E00441532 /* MightyMan.app */,
+				48A2B6D918359B3E00441532 /* MightyManTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		48A2B6B318359B3E00441532 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				48A2B6B418359B3E00441532 /* Foundation.framework */,
+				48A2B6B618359B3E00441532 /* CoreGraphics.framework */,
+				48A2B6B818359B3E00441532 /* UIKit.framework */,
+				48A2B6BA18359B3E00441532 /* SpriteKit.framework */,
+				48A2B6DA18359B3E00441532 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		48A2B6BC18359B3E00441532 /* MightyMan */ = {
+			isa = PBXGroup;
+			children = (
+				48A2B6C518359B3E00441532 /* BSAppDelegate.h */,
+				48A2B6C618359B3E00441532 /* BSAppDelegate.m */,
+				48A2B6C818359B3E00441532 /* Main.storyboard */,
+				48A2B6CB18359B3E00441532 /* BSViewController.h */,
+				48A2B6CC18359B3E00441532 /* BSViewController.m */,
+				48A2B6CE18359B3E00441532 /* BSMyScene.h */,
+				48A2B6CF18359B3E00441532 /* BSMyScene.m */,
+				48A2B6D118359B3E00441532 /* Spaceship.png */,
+				48A2B6D318359B3E00441532 /* Images.xcassets */,
+				48A2B6BD18359B3E00441532 /* Supporting Files */,
+			);
+			path = MightyMan;
+			sourceTree = "<group>";
+		};
+		48A2B6BD18359B3E00441532 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				48A2B6BE18359B3E00441532 /* MightyMan-Info.plist */,
+				48A2B6BF18359B3E00441532 /* InfoPlist.strings */,
+				48A2B6C218359B3E00441532 /* main.m */,
+				48A2B6C418359B3E00441532 /* MightyMan-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		48A2B6E018359B3E00441532 /* MightyManTests */ = {
+			isa = PBXGroup;
+			children = (
+				48A2B6E618359B3E00441532 /* MightyManTests.m */,
+				48A2B6E118359B3E00441532 /* Supporting Files */,
+			);
+			path = MightyManTests;
+			sourceTree = "<group>";
+		};
+		48A2B6E118359B3E00441532 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				48A2B6E218359B3E00441532 /* MightyManTests-Info.plist */,
+				48A2B6E318359B3E00441532 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		48A2B6B018359B3E00441532 /* MightyMan */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 48A2B6EA18359B3E00441532 /* Build configuration list for PBXNativeTarget "MightyMan" */;
+			buildPhases = (
+				48A2B6AD18359B3E00441532 /* Sources */,
+				48A2B6AE18359B3E00441532 /* Frameworks */,
+				48A2B6AF18359B3E00441532 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MightyMan;
+			productName = MightyMan;
+			productReference = 48A2B6B118359B3E00441532 /* MightyMan.app */;
+			productType = "com.apple.product-type.application";
+		};
+		48A2B6D818359B3E00441532 /* MightyManTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 48A2B6ED18359B3E00441532 /* Build configuration list for PBXNativeTarget "MightyManTests" */;
+			buildPhases = (
+				48A2B6D518359B3E00441532 /* Sources */,
+				48A2B6D618359B3E00441532 /* Frameworks */,
+				48A2B6D718359B3E00441532 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				48A2B6DF18359B3E00441532 /* PBXTargetDependency */,
+			);
+			name = MightyManTests;
+			productName = MightyManTests;
+			productReference = 48A2B6D918359B3E00441532 /* MightyManTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		48A2B6A918359B3E00441532 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = BS;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Bryan Smith";
+				TargetAttributes = {
+					48A2B6D818359B3E00441532 = {
+						TestTargetID = 48A2B6B018359B3E00441532;
+					};
+				};
+			};
+			buildConfigurationList = 48A2B6AC18359B3E00441532 /* Build configuration list for PBXProject "MightyMan" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 48A2B6A818359B3E00441532;
+			productRefGroup = 48A2B6B218359B3E00441532 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				48A2B6B018359B3E00441532 /* MightyMan */,
+				48A2B6D818359B3E00441532 /* MightyManTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		48A2B6AF18359B3E00441532 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48A2B6C118359B3E00441532 /* InfoPlist.strings in Resources */,
+				48A2B6D418359B3E00441532 /* Images.xcassets in Resources */,
+				48A2B6D218359B3E00441532 /* Spaceship.png in Resources */,
+				48A2B6CA18359B3E00441532 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		48A2B6D718359B3E00441532 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48A2B6E518359B3E00441532 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		48A2B6AD18359B3E00441532 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48A2B6CD18359B3E00441532 /* BSViewController.m in Sources */,
+				48A2B6C318359B3E00441532 /* main.m in Sources */,
+				48A2B6C718359B3E00441532 /* BSAppDelegate.m in Sources */,
+				48A2B6D018359B3E00441532 /* BSMyScene.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		48A2B6D518359B3E00441532 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48A2B6E718359B3E00441532 /* MightyManTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		48A2B6DF18359B3E00441532 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 48A2B6B018359B3E00441532 /* MightyMan */;
+			targetProxy = 48A2B6DE18359B3E00441532 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		48A2B6BF18359B3E00441532 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				48A2B6C018359B3E00441532 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		48A2B6C818359B3E00441532 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				48A2B6C918359B3E00441532 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		48A2B6E318359B3E00441532 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				48A2B6E418359B3E00441532 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		48A2B6E818359B3E00441532 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		48A2B6E918359B3E00441532 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		48A2B6EB18359B3E00441532 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MightyMan/MightyMan-Prefix.pch";
+				INFOPLIST_FILE = "MightyMan/MightyMan-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		48A2B6EC18359B3E00441532 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MightyMan/MightyMan-Prefix.pch";
+				INFOPLIST_FILE = "MightyMan/MightyMan-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		48A2B6EE18359B3E00441532 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MightyMan.app/MightyMan";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MightyMan/MightyMan-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "MightyManTests/MightyManTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		48A2B6EF18359B3E00441532 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MightyMan.app/MightyMan";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MightyMan/MightyMan-Prefix.pch";
+				INFOPLIST_FILE = "MightyManTests/MightyManTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		48A2B6AC18359B3E00441532 /* Build configuration list for PBXProject "MightyMan" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				48A2B6E818359B3E00441532 /* Debug */,
+				48A2B6E918359B3E00441532 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		48A2B6EA18359B3E00441532 /* Build configuration list for PBXNativeTarget "MightyMan" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				48A2B6EB18359B3E00441532 /* Debug */,
+				48A2B6EC18359B3E00441532 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		48A2B6ED18359B3E00441532 /* Build configuration list for PBXNativeTarget "MightyManTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				48A2B6EE18359B3E00441532 /* Debug */,
+				48A2B6EF18359B3E00441532 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 48A2B6A918359B3E00441532 /* Project object */;
+}
