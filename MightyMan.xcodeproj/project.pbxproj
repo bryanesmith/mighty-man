@@ -24,6 +24,8 @@
 		48A2B6DD18359B3E00441532 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A2B6B818359B3E00441532 /* UIKit.framework */; };
 		48A2B6E518359B3E00441532 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 48A2B6E318359B3E00441532 /* InfoPlist.strings */; };
 		48A2B6E718359B3E00441532 /* MightyManTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A2B6E618359B3E00441532 /* MightyManTests.m */; };
+		48D3D4F01835D0A60030F37A /* BSMightyMan.m in Sources */ = {isa = PBXBuildFile; fileRef = 48D3D4EF1835D0A60030F37A /* BSMightyMan.m */; };
+		48D3D4F21835DA980030F37A /* MightyMan.png in Resources */ = {isa = PBXBuildFile; fileRef = 48D3D4F11835DA980030F37A /* MightyMan.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +62,9 @@
 		48A2B6E218359B3E00441532 /* MightyManTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MightyManTests-Info.plist"; sourceTree = "<group>"; };
 		48A2B6E418359B3E00441532 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		48A2B6E618359B3E00441532 /* MightyManTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MightyManTests.m; sourceTree = "<group>"; };
+		48D3D4EE1835D0A60030F37A /* BSMightyMan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSMightyMan.h; sourceTree = "<group>"; };
+		48D3D4EF1835D0A60030F37A /* BSMightyMan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSMightyMan.m; sourceTree = "<group>"; };
+		48D3D4F11835DA980030F37A /* MightyMan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MightyMan.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +126,7 @@
 		48A2B6BC18359B3E00441532 /* MightyMan */ = {
 			isa = PBXGroup;
 			children = (
+				48D3D4F31835DA9E0030F37A /* Resources */,
 				48A2B6C518359B3E00441532 /* BSAppDelegate.h */,
 				48A2B6C618359B3E00441532 /* BSAppDelegate.m */,
 				48A2B6C818359B3E00441532 /* Main.storyboard */,
@@ -128,9 +134,10 @@
 				48A2B6CC18359B3E00441532 /* BSViewController.m */,
 				48A2B6CE18359B3E00441532 /* BSMyScene.h */,
 				48A2B6CF18359B3E00441532 /* BSMyScene.m */,
-				48A2B6D118359B3E00441532 /* Spaceship.png */,
 				48A2B6D318359B3E00441532 /* Images.xcassets */,
 				48A2B6BD18359B3E00441532 /* Supporting Files */,
+				48D3D4EE1835D0A60030F37A /* BSMightyMan.h */,
+				48D3D4EF1835D0A60030F37A /* BSMightyMan.m */,
 			);
 			path = MightyMan;
 			sourceTree = "<group>";
@@ -162,6 +169,15 @@
 				48A2B6E318359B3E00441532 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		48D3D4F31835DA9E0030F37A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				48A2B6D118359B3E00441532 /* Spaceship.png */,
+				48D3D4F11835DA980030F37A /* MightyMan.png */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,6 +260,7 @@
 				48A2B6C118359B3E00441532 /* InfoPlist.strings in Resources */,
 				48A2B6D418359B3E00441532 /* Images.xcassets in Resources */,
 				48A2B6D218359B3E00441532 /* Spaceship.png in Resources */,
+				48D3D4F21835DA980030F37A /* MightyMan.png in Resources */,
 				48A2B6CA18359B3E00441532 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,6 +284,7 @@
 				48A2B6C318359B3E00441532 /* main.m in Sources */,
 				48A2B6C718359B3E00441532 /* BSAppDelegate.m in Sources */,
 				48A2B6D018359B3E00441532 /* BSMyScene.m in Sources */,
+				48D3D4F01835D0A60030F37A /* BSMightyMan.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
