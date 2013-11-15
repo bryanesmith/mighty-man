@@ -477,6 +477,7 @@
 				48A2B6EC18359B3E00441532 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		48A2B6ED18359B3E00441532 /* Build configuration list for PBXNativeTarget "MightyManTests" */ = {
 			isa = XCConfigurationList;
@@ -485,6 +486,7 @@
 				48A2B6EF18359B3E00441532 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
