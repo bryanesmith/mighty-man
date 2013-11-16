@@ -66,12 +66,25 @@ static const uint32_t GroundCategory = 0x1 << 1;
     SKSpriteNode *cloud1 = [SKSpriteNode spriteNodeWithImageNamed:@"Cloud1.png"];
     cloud1.name = @"Cloud1";
     cloud1.position = CGPointMake(200, 150);
+    
+    float duration1 = [self getCloudDurationFromPosition:cloud1.position.x];
+    SKAction *move1 = [SKAction moveToX:0                                    duration:duration1];
+    [cloud1 runAction:move1];
     [self addChild:cloud1];
     
     SKSpriteNode *cloud2 = [SKSpriteNode spriteNodeWithImageNamed:@"Cloud2.png"];
     cloud2.name = @"Cloud2";
     cloud2.position = CGPointMake(400, 200);
+    
+    float duration2 = [self getCloudDurationFromPosition:cloud2.position.x];
+    SKAction *move2 = [SKAction moveToX:0                                    duration:duration2];
+    [cloud2 runAction:move2];
+    
     [self addChild:cloud2];
+}
+
+- (CGFloat) getCloudDurationFromPosition:(CGFloat) x {
+    return 60.0 * (x / self.size.width);
 }
 
 - (void) didEndContact:(SKPhysicsContact *)contact {
