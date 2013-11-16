@@ -44,7 +44,7 @@
 - (void) setRunning {
     [self removeAllActions];
     SKAction *loop = [SKAction repeatActionForever:[SKAction animateWithTextures:self.runningFrames
-                                                                    timePerFrame:0.15]];
+                                                                    timePerFrame:0.1375]];
     [self runAction:loop];
 }
 
