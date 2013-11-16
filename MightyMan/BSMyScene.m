@@ -9,11 +9,31 @@
 #import "BSMyScene.h"
 #import "BSMightyMan.h"
 
+@interface BSMyScene ()
+
+@property (nonatomic, weak) UITouch *touch;
+
+@end
+
 @implementation BSMyScene
 
 static const uint32_t FrameCategory = 0x1 << 1;
 static const uint32_t MightyMan = 0x1 << 2;
 static const uint32_t GroundCategory = 0x1 << 1;
+
+-(void)update:(NSTimeInterval)currentTime {
+    
+    if (self.touch) {
+        [self enumerateChildNodesWithName:@"Ground" usingBlock: ^(SKNode *node, BOOL *stop) {
+            SKSpriteNode *bg = (SKSpriteNode *) node;
+            bg.position = CGPointMake(bg.position.x - 3, bg.position.y);
+            
+            if (bg.position.x <= -bg.size.width) {
+                bg.position = CGPointMake(bg.position.x + bg.size.width * 2, bg.position.y);
+            }
+        }];
+    }
+}
 
 -(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
@@ -99,6 +119,24 @@ float totalCloudDuration = 60.0;
 
 - (CGFloat) getCloudDurationFromPosition:(CGFloat) x {
     return totalCloudDuration * (x / self.size.width);
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    self.touch = [touches anyObject];
+//    RCWHamster *hamster = (RCWHamster *)[self childNodeWithName:@"hamster"];
+//    CGPoint innode = [t locationInNode:self];
+//    [hamster applyImpulseToPoint:innode];
+    NSLog(@"DEBUG: touchesBegan");
+}
+
+-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+    self.touch = [touches anyObject];
+     NSLog(@"DEBUG: touchesMoved");
+}
+
+-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    self.touch = nil;
+     NSLog(@"DEBUG: touchesEnded");
 }
 
 - (void) didEndContact:(SKPhysicsContact *)contact {
