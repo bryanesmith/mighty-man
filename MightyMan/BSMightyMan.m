@@ -19,7 +19,7 @@
     
     BSMightyMan *mightyMan = [BSMightyMan
                                spriteNodeWithImageNamed:@"MightyMan.png"];
-    mightyMan.position = CGPointMake(20, 200);
+    mightyMan.position = CGPointMake(50, 200);
     mightyMan.size = CGSizeMake(53, 55);
     mightyMan.zPosition = 1;
     mightyMan.name = @"MightyMan";

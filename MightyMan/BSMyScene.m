@@ -11,17 +11,23 @@
 
 @implementation BSMyScene
 
-static const uint32_t WallCategory = 0x1 << 1;
+static const uint32_t FrameCategory = 0x1 << 1;
 static const uint32_t MightyMan = 0x1 << 2;
+static const uint32_t GroundCategory = 0x1 << 1;
 
 -(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
         
-        UIColor *bgColor = [UIColor colorWithRed: 135/255.0 green: 206/255.0 blue:250.0/255.0 alpha: 1.0];
+        UIColor *bgColor = [UIColor colorWithRed:135/255.0
+                                           green:206/255.0
+                                            blue:250.0/255.0
+                                           alpha:1.0];
         self.backgroundColor = bgColor;
         
         [self addGround];
         [self addMightyMan];
+        
+        self.physicsWorld.gravity = CGVectorMake(0, -1.0); // 0, -2
     }
     return self;
 }
@@ -29,23 +35,27 @@ static const uint32_t MightyMan = 0x1 << 2;
 - (void) addMightyMan {
     BSMightyMan *mightyMan = [BSMightyMan node];
     mightyMan.physicsBody.categoryBitMask = MightyMan;
-    mightyMan.physicsBody.collisionBitMask = WallCategory;
+    mightyMan.physicsBody.collisionBitMask = FrameCategory | GroundCategory;
 //    mightyMan = ...;
     
     [self addChild:mightyMan];
 }
 
 - (void) addGround {
-    self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
+    SKShapeNode *ground = [[SKShapeNode alloc] init];
+    CGRect groundRect = CGRectMake(0, 0, self.frame.size.width, 50);
+    ground.path = [[UIBezierPath bezierPathWithRect:groundRect] CGPath];
+//    ground.fillColor = [UIColor brownColor];
     
-    NSLog(@"DEBUG: %f %f", self.frame.size.height, self.frame.size.width);
+    ground.strokeColor = ground.fillColor;
+    ground.name = @"Ground";
+    ground.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromPath:ground.path];
+    
+    [self addChild:ground];
     
     self.physicsWorld.contactDelegate = self;
-    self.physicsBody.categoryBitMask = WallCategory;
+    self.physicsBody.categoryBitMask = GroundCategory;
     self.physicsBody.collisionBitMask = MightyMan;
-    
-    self.physicsWorld.gravity = CGVectorMake(0, -0.5); // 0, -2
-    self.name = @"ground";
 }
 
 - (void) didEndContact:(SKPhysicsContact *)contact {
