@@ -30,14 +30,14 @@ static CGSize spriteSize;
                                  [texture_atlas textureNamed:@"MightyMan4"],
                                  [texture_atlas textureNamed:@"MightyMan3"]];
     
-    mightyMan.position = CGPointMake(70, 70);
-    spriteSize = CGSizeMake(67, 60);
+    mightyMan.position = CGPointMake(60, 70);
+    spriteSize = CGSizeMake(70, 70);
     mightyMan.size = spriteSize;
     mightyMan.name = @"MightyMan";
     mightyMan.zPosition = 1.0;
     
     // There's some blank space, so physics body is smaller
-    mightyMan.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(50, 59)];
+    mightyMan.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:spriteSize];
     mightyMan.physicsBody.restitution = 0.0;
     mightyMan.physicsBody.mass = 1;
     
@@ -47,8 +47,9 @@ static CGSize spriteSize;
 
 - (void) setRunning {
     [self removeAllActions];
-    SKAction *loop = [SKAction repeatActionForever:[SKAction animateWithTextures:self.runningFrames
-                                                                    timePerFrame:0.1375]];
+    SKAction *loop = [SKAction repeatActionForever:
+                      [SKAction animateWithTextures:self.runningFrames
+                       timePerFrame:0.1375]];
     [self runAction:loop];
 }
 
