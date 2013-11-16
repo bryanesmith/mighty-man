@@ -87,15 +87,24 @@ float totalCloudDuration = 60.0;
     SKSpriteNode *cloud1 = [SKSpriteNode spriteNodeWithImageNamed:@"Cloud1.png"];
     cloud1.name = @"Cloud1";
     cloud1.position = CGPointMake(200, 150);
+    cloud1.zPosition = 0.0;
     [self moveCloud:cloud1];
     [self addChild:cloud1];
     
     SKSpriteNode *cloud2 = [SKSpriteNode spriteNodeWithImageNamed:@"Cloud2.png"];
     cloud2.name = @"Cloud2";
-    cloud2.position = CGPointMake(400, 200);
+    cloud2.position = CGPointMake(350, 200);
+    cloud1.zPosition = 0.0;
     [self moveCloud:cloud2];
     
     [self addChild:cloud2];
+    
+    SKSpriteNode *cloud3 = [SKSpriteNode spriteNodeWithImageNamed:@"Cloud1.png"];
+    cloud3.name = @"Cloud3";
+    cloud3.position = CGPointMake(550, 75);
+    cloud3.zPosition = 0.0;
+    [self moveCloud:cloud3];
+    [self addChild:cloud3];
 }
 
 - (void) moveCloud:(SKSpriteNode *) cloud {

@@ -34,6 +34,7 @@ static CGSize spriteSize;
     spriteSize = CGSizeMake(67, 60);
     mightyMan.size = spriteSize;
     mightyMan.name = @"MightyMan";
+    mightyMan.zPosition = 1.0;
     
     // There's some blank space, so physics body is smaller
     mightyMan.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(50, 59)];
