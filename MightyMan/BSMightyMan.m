@@ -15,6 +15,8 @@
 
 @implementation BSMightyMan
 
+static CGSize spriteSize;
+
 + (id) node {
     
     SKTextureAtlas *texture_atlas = [SKTextureAtlas atlasNamed:@"MightyMan"];
@@ -29,7 +31,8 @@
                                  [texture_atlas textureNamed:@"MightyMan3"]];
     
     mightyMan.position = CGPointMake(80, 70);
-    mightyMan.size = CGSizeMake(67, 60);
+    spriteSize = CGSizeMake(67, 60);
+    mightyMan.size = spriteSize;
     mightyMan.name = @"MightyMan";
     
     // There's some blank space, so physics body is smaller
@@ -51,6 +54,9 @@
 -(void) setStanding {
     [self removeAllActions];
     self.texture = self.standingFrame;
+    
+    // TODO: Is this necessary? Was experiencing sporadic skewing.
+    self.size = spriteSize;
 }
 
 @end
