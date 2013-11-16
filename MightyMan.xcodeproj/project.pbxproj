@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		481E87B818372AC5005CBEC4 /* MegaManPlatform.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 481E87B718372AC5005CBEC4 /* MegaManPlatform.jpg */; };
-		481E87BC183733E2005CBEC4 /* MightyMan.png in Resources */ = {isa = PBXBuildFile; fileRef = 481E87BB183733E2005CBEC4 /* MightyMan.png */; };
 		481E87BE183739A9005CBEC4 /* Cloud1.png in Resources */ = {isa = PBXBuildFile; fileRef = 481E87BD183739A9005CBEC4 /* Cloud1.png */; };
 		481E87C018373A92005CBEC4 /* Cloud2.png in Resources */ = {isa = PBXBuildFile; fileRef = 481E87BF18373A92005CBEC4 /* Cloud2.png */; };
 		481E87E41837F5F0005CBEC4 /* MightyMan.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 481E87E31837F5F0005CBEC4 /* MightyMan.atlas */; };
@@ -22,7 +21,6 @@
 		48A2B6CA18359B3E00441532 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48A2B6C818359B3E00441532 /* Main.storyboard */; };
 		48A2B6CD18359B3E00441532 /* BSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A2B6CC18359B3E00441532 /* BSViewController.m */; };
 		48A2B6D018359B3E00441532 /* BSMyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A2B6CF18359B3E00441532 /* BSMyScene.m */; };
-		48A2B6D218359B3E00441532 /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = 48A2B6D118359B3E00441532 /* Spaceship.png */; };
 		48A2B6D418359B3E00441532 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48A2B6D318359B3E00441532 /* Images.xcassets */; };
 		48A2B6DB18359B3E00441532 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A2B6DA18359B3E00441532 /* XCTest.framework */; };
 		48A2B6DC18359B3E00441532 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A2B6B418359B3E00441532 /* Foundation.framework */; };
@@ -44,7 +42,6 @@
 
 /* Begin PBXFileReference section */
 		481E87B718372AC5005CBEC4 /* MegaManPlatform.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = MegaManPlatform.jpg; sourceTree = "<group>"; };
-		481E87BB183733E2005CBEC4 /* MightyMan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MightyMan.png; sourceTree = "<group>"; };
 		481E87BD183739A9005CBEC4 /* Cloud1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cloud1.png; sourceTree = "<group>"; };
 		481E87BF18373A92005CBEC4 /* Cloud2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cloud2.png; sourceTree = "<group>"; };
 		481E87E31837F5F0005CBEC4 /* MightyMan.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = MightyMan.atlas; sourceTree = "<group>"; };
@@ -64,7 +61,6 @@
 		48A2B6CC18359B3E00441532 /* BSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BSViewController.m; sourceTree = "<group>"; };
 		48A2B6CE18359B3E00441532 /* BSMyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BSMyScene.h; sourceTree = "<group>"; };
 		48A2B6CF18359B3E00441532 /* BSMyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BSMyScene.m; sourceTree = "<group>"; };
-		48A2B6D118359B3E00441532 /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
 		48A2B6D318359B3E00441532 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		48A2B6D918359B3E00441532 /* MightyManTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MightyManTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		48A2B6DA18359B3E00441532 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -100,6 +96,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		481E87E518383304005CBEC4 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				48D3D4EE1835D0A60030F37A /* BSMightyMan.h */,
+				48D3D4EF1835D0A60030F37A /* BSMightyMan.m */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
 		48A2B6A818359B3E00441532 = {
 			isa = PBXGroup;
 			children = (
@@ -134,8 +139,6 @@
 		48A2B6BC18359B3E00441532 /* MightyMan */ = {
 			isa = PBXGroup;
 			children = (
-				481E87E31837F5F0005CBEC4 /* MightyMan.atlas */,
-				48D3D4F31835DA9E0030F37A /* Resources */,
 				48A2B6C518359B3E00441532 /* BSAppDelegate.h */,
 				48A2B6C618359B3E00441532 /* BSAppDelegate.m */,
 				48A2B6C818359B3E00441532 /* Main.storyboard */,
@@ -145,8 +148,8 @@
 				48A2B6CF18359B3E00441532 /* BSMyScene.m */,
 				48A2B6D318359B3E00441532 /* Images.xcassets */,
 				48A2B6BD18359B3E00441532 /* Supporting Files */,
-				48D3D4EE1835D0A60030F37A /* BSMightyMan.h */,
-				48D3D4EF1835D0A60030F37A /* BSMightyMan.m */,
+				481E87E518383304005CBEC4 /* Data */,
+				48D3D4F31835DA9E0030F37A /* Resources */,
 			);
 			path = MightyMan;
 			sourceTree = "<group>";
@@ -183,11 +186,10 @@
 		48D3D4F31835DA9E0030F37A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				481E87E31837F5F0005CBEC4 /* MightyMan.atlas */,
 				481E87BD183739A9005CBEC4 /* Cloud1.png */,
 				481E87BF18373A92005CBEC4 /* Cloud2.png */,
 				481E87B718372AC5005CBEC4 /* MegaManPlatform.jpg */,
-				481E87BB183733E2005CBEC4 /* MightyMan.png */,
-				48A2B6D118359B3E00441532 /* Spaceship.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -272,9 +274,7 @@
 				48A2B6C118359B3E00441532 /* InfoPlist.strings in Resources */,
 				481E87B818372AC5005CBEC4 /* MegaManPlatform.jpg in Resources */,
 				481E87E41837F5F0005CBEC4 /* MightyMan.atlas in Resources */,
-				481E87BC183733E2005CBEC4 /* MightyMan.png in Resources */,
 				48A2B6D418359B3E00441532 /* Images.xcassets in Resources */,
-				48A2B6D218359B3E00441532 /* Spaceship.png in Resources */,
 				48A2B6CA18359B3E00441532 /* Main.storyboard in Resources */,
 				481E87C018373A92005CBEC4 /* Cloud2.png in Resources */,
 				481E87BE183739A9005CBEC4 /* Cloud1.png in Resources */,
