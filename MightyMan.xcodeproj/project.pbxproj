@@ -7,10 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		481E87B818372AC5005CBEC4 /* MegaManPlatform.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 481E87B718372AC5005CBEC4 /* MegaManPlatform.jpg */; };
-		481E87BE183739A9005CBEC4 /* Cloud1.png in Resources */ = {isa = PBXBuildFile; fileRef = 481E87BD183739A9005CBEC4 /* Cloud1.png */; };
-		481E87C018373A92005CBEC4 /* Cloud2.png in Resources */ = {isa = PBXBuildFile; fileRef = 481E87BF18373A92005CBEC4 /* Cloud2.png */; };
-		481E87E41837F5F0005CBEC4 /* MightyMan.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 481E87E31837F5F0005CBEC4 /* MightyMan.atlas */; };
+		481E87E7183833C6005CBEC4 /* MightyMan.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 481E87E6183833C6005CBEC4 /* MightyMan.atlas */; };
+		481E87EA18383498005CBEC4 /* BSCloud.m in Sources */ = {isa = PBXBuildFile; fileRef = 481E87E918383498005CBEC4 /* BSCloud.m */; };
 		48A2B6B518359B3E00441532 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A2B6B418359B3E00441532 /* Foundation.framework */; };
 		48A2B6B718359B3E00441532 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A2B6B618359B3E00441532 /* CoreGraphics.framework */; };
 		48A2B6B918359B3E00441532 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A2B6B818359B3E00441532 /* UIKit.framework */; };
@@ -41,10 +39,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		481E87B718372AC5005CBEC4 /* MegaManPlatform.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = MegaManPlatform.jpg; sourceTree = "<group>"; };
-		481E87BD183739A9005CBEC4 /* Cloud1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cloud1.png; sourceTree = "<group>"; };
-		481E87BF18373A92005CBEC4 /* Cloud2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cloud2.png; sourceTree = "<group>"; };
-		481E87E31837F5F0005CBEC4 /* MightyMan.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = MightyMan.atlas; sourceTree = "<group>"; };
+		481E87E6183833C6005CBEC4 /* MightyMan.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = MightyMan.atlas; sourceTree = "<group>"; };
+		481E87E818383498005CBEC4 /* BSCloud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSCloud.h; sourceTree = "<group>"; };
+		481E87E918383498005CBEC4 /* BSCloud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSCloud.m; sourceTree = "<group>"; };
 		48A2B6B118359B3E00441532 /* MightyMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MightyMan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48A2B6B418359B3E00441532 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		48A2B6B618359B3E00441532 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -101,6 +98,8 @@
 			children = (
 				48D3D4EE1835D0A60030F37A /* BSMightyMan.h */,
 				48D3D4EF1835D0A60030F37A /* BSMightyMan.m */,
+				481E87E818383498005CBEC4 /* BSCloud.h */,
+				481E87E918383498005CBEC4 /* BSCloud.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -139,6 +138,7 @@
 		48A2B6BC18359B3E00441532 /* MightyMan */ = {
 			isa = PBXGroup;
 			children = (
+				481E87E6183833C6005CBEC4 /* MightyMan.atlas */,
 				48A2B6C518359B3E00441532 /* BSAppDelegate.h */,
 				48A2B6C618359B3E00441532 /* BSAppDelegate.m */,
 				48A2B6C818359B3E00441532 /* Main.storyboard */,
@@ -149,7 +149,6 @@
 				48A2B6D318359B3E00441532 /* Images.xcassets */,
 				48A2B6BD18359B3E00441532 /* Supporting Files */,
 				481E87E518383304005CBEC4 /* Data */,
-				48D3D4F31835DA9E0030F37A /* Resources */,
 			);
 			path = MightyMan;
 			sourceTree = "<group>";
@@ -181,17 +180,6 @@
 				48A2B6E318359B3E00441532 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		48D3D4F31835DA9E0030F37A /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				481E87E31837F5F0005CBEC4 /* MightyMan.atlas */,
-				481E87BD183739A9005CBEC4 /* Cloud1.png */,
-				481E87BF18373A92005CBEC4 /* Cloud2.png */,
-				481E87B718372AC5005CBEC4 /* MegaManPlatform.jpg */,
-			);
-			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,13 +259,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				481E87E7183833C6005CBEC4 /* MightyMan.atlas in Resources */,
 				48A2B6C118359B3E00441532 /* InfoPlist.strings in Resources */,
-				481E87B818372AC5005CBEC4 /* MegaManPlatform.jpg in Resources */,
-				481E87E41837F5F0005CBEC4 /* MightyMan.atlas in Resources */,
 				48A2B6D418359B3E00441532 /* Images.xcassets in Resources */,
 				48A2B6CA18359B3E00441532 /* Main.storyboard in Resources */,
-				481E87C018373A92005CBEC4 /* Cloud2.png in Resources */,
-				481E87BE183739A9005CBEC4 /* Cloud1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +285,7 @@
 				48A2B6C318359B3E00441532 /* main.m in Sources */,
 				48A2B6C718359B3E00441532 /* BSAppDelegate.m in Sources */,
 				48A2B6D018359B3E00441532 /* BSMyScene.m in Sources */,
+				481E87EA18383498005CBEC4 /* BSCloud.m in Sources */,
 				48D3D4F01835D0A60030F37A /* BSMightyMan.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

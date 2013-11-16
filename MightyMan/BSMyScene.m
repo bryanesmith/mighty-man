@@ -7,7 +7,10 @@
 //
 
 #import "BSMyScene.h"
+
+// Import: Data
 #import "BSMightyMan.h"
+#import "BSCloud.h"
 
 @interface BSMyScene ()
 
@@ -82,52 +85,19 @@ static const uint32_t GroundCategory = 0x1 << 1;
     }
 }
 
-float totalCloudDuration = 60.0;
 - (void) addClouds {
-    SKSpriteNode *cloud1 = [SKSpriteNode spriteNodeWithImageNamed:@"Cloud1.png"];
-    cloud1.name = @"Cloud1";
-    cloud1.position = CGPointMake(200, 150);
-    cloud1.zPosition = 0.0;
-    [self moveCloud:cloud1];
+    
+    BSCloud *cloud1 = [BSCloud nodeForTextName:@"Cloud1"
+                                            at:CGPointMake(200, 150)];
     [self addChild:cloud1];
     
-    SKSpriteNode *cloud2 = [SKSpriteNode spriteNodeWithImageNamed:@"Cloud2.png"];
-    cloud2.name = @"Cloud2";
-    cloud2.position = CGPointMake(350, 200);
-    cloud1.zPosition = 0.0;
-    [self moveCloud:cloud2];
-    
+    BSCloud *cloud2 = [BSCloud nodeForTextName:@"Cloud1"
+                                            at:CGPointMake(350, 200)];
     [self addChild:cloud2];
     
-    SKSpriteNode *cloud3 = [SKSpriteNode spriteNodeWithImageNamed:@"Cloud1.png"];
-    cloud3.name = @"Cloud3";
-    cloud3.position = CGPointMake(550, 75);
-    cloud3.zPosition = 0.0;
-    [self moveCloud:cloud3];
+    BSCloud *cloud3 = [BSCloud nodeForTextName:@"Cloud1"
+                                            at:CGPointMake(550, 75)];
     [self addChild:cloud3];
-}
-
-- (void) moveCloud:(SKSpriteNode *) cloud {
-    
-    float offScreenAdj = 40.0;
-    
-    float duration = [self getCloudDurationFromPosition:cloud.position.x];
-    
-    SKAction *move1 = [SKAction moveToX: -offScreenAdj                                   duration:duration];
-    SKAction *move2 = [SKAction runBlock:^{
-        [cloud setPosition: CGPointMake(self.size.width + offScreenAdj, cloud.position.y)];
-    }];
-    SKAction *move3 = [SKAction moveToX: -offScreenAdj                                   duration:totalCloudDuration];
-    
-    SKAction *loop = [SKAction repeatActionForever:[SKAction sequence:@[move2, move3]]];
-    
-    SKAction *go = [SKAction sequence:@[move1, loop]];
-    
-    [cloud runAction:go];
-}
-
-- (CGFloat) getCloudDurationFromPosition:(CGFloat) x {
-    return totalCloudDuration * (x / self.size.width);
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {

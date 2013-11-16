@@ -30,7 +30,7 @@ static CGSize spriteSize;
                                  [texture_atlas textureNamed:@"MightyMan4"],
                                  [texture_atlas textureNamed:@"MightyMan3"]];
     
-    mightyMan.position = CGPointMake(80, 70);
+    mightyMan.position = CGPointMake(70, 70);
     spriteSize = CGSizeMake(67, 60);
     mightyMan.size = spriteSize;
     mightyMan.name = @"MightyMan";
