@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		481E87B818372AC5005CBEC4 /* MegaManPlatform.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 481E87B718372AC5005CBEC4 /* MegaManPlatform.jpg */; };
+		481E87BC183733E2005CBEC4 /* MightyMan.png in Resources */ = {isa = PBXBuildFile; fileRef = 481E87BB183733E2005CBEC4 /* MightyMan.png */; };
 		48A2B6B518359B3E00441532 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A2B6B418359B3E00441532 /* Foundation.framework */; };
 		48A2B6B718359B3E00441532 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A2B6B618359B3E00441532 /* CoreGraphics.framework */; };
 		48A2B6B918359B3E00441532 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A2B6B818359B3E00441532 /* UIKit.framework */; };
@@ -25,7 +27,6 @@
 		48A2B6E518359B3E00441532 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 48A2B6E318359B3E00441532 /* InfoPlist.strings */; };
 		48A2B6E718359B3E00441532 /* MightyManTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A2B6E618359B3E00441532 /* MightyManTests.m */; };
 		48D3D4F01835D0A60030F37A /* BSMightyMan.m in Sources */ = {isa = PBXBuildFile; fileRef = 48D3D4EF1835D0A60030F37A /* BSMightyMan.m */; };
-		48D3D4F21835DA980030F37A /* MightyMan.png in Resources */ = {isa = PBXBuildFile; fileRef = 48D3D4F11835DA980030F37A /* MightyMan.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		481E87B718372AC5005CBEC4 /* MegaManPlatform.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = MegaManPlatform.jpg; sourceTree = "<group>"; };
+		481E87BB183733E2005CBEC4 /* MightyMan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MightyMan.png; sourceTree = "<group>"; };
 		48A2B6B118359B3E00441532 /* MightyMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MightyMan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48A2B6B418359B3E00441532 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		48A2B6B618359B3E00441532 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -64,7 +67,6 @@
 		48A2B6E618359B3E00441532 /* MightyManTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MightyManTests.m; sourceTree = "<group>"; };
 		48D3D4EE1835D0A60030F37A /* BSMightyMan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSMightyMan.h; sourceTree = "<group>"; };
 		48D3D4EF1835D0A60030F37A /* BSMightyMan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSMightyMan.m; sourceTree = "<group>"; };
-		48D3D4F11835DA980030F37A /* MightyMan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MightyMan.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,8 +176,9 @@
 		48D3D4F31835DA9E0030F37A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				481E87B718372AC5005CBEC4 /* MegaManPlatform.jpg */,
+				481E87BB183733E2005CBEC4 /* MightyMan.png */,
 				48A2B6D118359B3E00441532 /* Spaceship.png */,
-				48D3D4F11835DA980030F37A /* MightyMan.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -258,9 +261,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				48A2B6C118359B3E00441532 /* InfoPlist.strings in Resources */,
+				481E87B818372AC5005CBEC4 /* MegaManPlatform.jpg in Resources */,
+				481E87BC183733E2005CBEC4 /* MightyMan.png in Resources */,
 				48A2B6D418359B3E00441532 /* Images.xcassets in Resources */,
 				48A2B6D218359B3E00441532 /* Spaceship.png in Resources */,
-				48D3D4F21835DA980030F37A /* MightyMan.png in Resources */,
 				48A2B6CA18359B3E00441532 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

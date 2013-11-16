@@ -27,35 +27,38 @@ static const uint32_t GroundCategory = 0x1 << 1;
         [self addGround];
         [self addMightyMan];
         
-        self.physicsWorld.gravity = CGVectorMake(0, -1.0); // 0, -2
+        self.physicsWorld.gravity = CGVectorMake(0, -1.5); // 0, -2
     }
     return self;
 }
 
 - (void) addMightyMan {
     BSMightyMan *mightyMan = [BSMightyMan node];
+    
     mightyMan.physicsBody.categoryBitMask = MightyMan;
-    mightyMan.physicsBody.collisionBitMask = FrameCategory | GroundCategory;
-//    mightyMan = ...;
+    mightyMan.physicsBody.collisionBitMask = GroundCategory;
+//    mightyMan.contactTestBitMask = ...;
     
     [self addChild:mightyMan];
 }
 
 - (void) addGround {
-    SKShapeNode *ground = [[SKShapeNode alloc] init];
-    CGRect groundRect = CGRectMake(0, 0, self.frame.size.width, 50);
-    ground.path = [[UIBezierPath bezierPathWithRect:groundRect] CGPath];
-//    ground.fillColor = [UIColor brownColor];
     
-    ground.strokeColor = ground.fillColor;
-    ground.name = @"Ground";
-    ground.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromPath:ground.path];
-    
-    [self addChild:ground];
-    
-    self.physicsWorld.contactDelegate = self;
-    self.physicsBody.categoryBitMask = GroundCategory;
-    self.physicsBody.collisionBitMask = MightyMan;
+    // http://stackoverflow.com/a/19353158
+    for (int i = 0; i < 2; i++) {
+        SKSpriteNode *ground = [SKSpriteNode spriteNodeWithImageNamed:@"MegaManPlatform.jpg"];
+        
+        ground.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:ground.size];
+        
+//        ground.anchorPoint = CGPointZero;
+        ground.position = CGPointMake(i * ground.size.width, 20);
+        ground.name = @"Ground";
+        ground.physicsBody.dynamic = NO;
+        ground.physicsBody.categoryBitMask = GroundCategory;
+        ground.physicsBody.collisionBitMask = MightyMan;
+        
+        [self addChild:ground];
+    }
 }
 
 - (void) didEndContact:(SKPhysicsContact *)contact {
