@@ -11,7 +11,7 @@
 		481E87BC183733E2005CBEC4 /* MightyMan.png in Resources */ = {isa = PBXBuildFile; fileRef = 481E87BB183733E2005CBEC4 /* MightyMan.png */; };
 		481E87BE183739A9005CBEC4 /* Cloud1.png in Resources */ = {isa = PBXBuildFile; fileRef = 481E87BD183739A9005CBEC4 /* Cloud1.png */; };
 		481E87C018373A92005CBEC4 /* Cloud2.png in Resources */ = {isa = PBXBuildFile; fileRef = 481E87BF18373A92005CBEC4 /* Cloud2.png */; };
-		481E87D61837BD84005CBEC4 /* MightyMan.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 481E87D51837BD84005CBEC4 /* MightyMan.atlas */; };
+		481E87DC1837C484005CBEC4 /* MightyMan.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 481E87DB1837C484005CBEC4 /* MightyMan.atlas */; };
 		48A2B6B518359B3E00441532 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A2B6B418359B3E00441532 /* Foundation.framework */; };
 		48A2B6B718359B3E00441532 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A2B6B618359B3E00441532 /* CoreGraphics.framework */; };
 		48A2B6B918359B3E00441532 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A2B6B818359B3E00441532 /* UIKit.framework */; };
@@ -47,7 +47,7 @@
 		481E87BB183733E2005CBEC4 /* MightyMan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MightyMan.png; sourceTree = "<group>"; };
 		481E87BD183739A9005CBEC4 /* Cloud1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cloud1.png; sourceTree = "<group>"; };
 		481E87BF18373A92005CBEC4 /* Cloud2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cloud2.png; sourceTree = "<group>"; };
-		481E87D51837BD84005CBEC4 /* MightyMan.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = MightyMan.atlas; sourceTree = "<group>"; };
+		481E87DB1837C484005CBEC4 /* MightyMan.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = MightyMan.atlas; sourceTree = "<group>"; };
 		48A2B6B118359B3E00441532 /* MightyMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MightyMan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48A2B6B418359B3E00441532 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		48A2B6B618359B3E00441532 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -134,7 +134,7 @@
 		48A2B6BC18359B3E00441532 /* MightyMan */ = {
 			isa = PBXGroup;
 			children = (
-				481E87D51837BD84005CBEC4 /* MightyMan.atlas */,
+				481E87DB1837C484005CBEC4 /* MightyMan.atlas */,
 				48D3D4F31835DA9E0030F37A /* Resources */,
 				48A2B6C518359B3E00441532 /* BSAppDelegate.h */,
 				48A2B6C618359B3E00441532 /* BSAppDelegate.m */,
@@ -271,7 +271,7 @@
 			files = (
 				48A2B6C118359B3E00441532 /* InfoPlist.strings in Resources */,
 				481E87B818372AC5005CBEC4 /* MegaManPlatform.jpg in Resources */,
-				481E87D61837BD84005CBEC4 /* MightyMan.atlas in Resources */,
+				481E87DC1837C484005CBEC4 /* MightyMan.atlas in Resources */,
 				481E87BC183733E2005CBEC4 /* MightyMan.png in Resources */,
 				48A2B6D418359B3E00441532 /* Images.xcassets in Resources */,
 				48A2B6D218359B3E00441532 /* Spaceship.png in Resources */,

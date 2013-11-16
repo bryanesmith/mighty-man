@@ -25,13 +25,15 @@
     mightyMan.standingFrame = standing;
     mightyMan.runningFrames = @[ [texture_atlas textureNamed:@"MightyMan2"],
                                  [texture_atlas textureNamed:@"MightyMan3"],
-                                 [texture_atlas textureNamed:@"MightyMan4"]];
+                                 [texture_atlas textureNamed:@"MightyMan4"],
+                                 [texture_atlas textureNamed:@"MightyMan3"]];
     
-    mightyMan.position = CGPointMake(80, 40);
-    mightyMan.size = CGSizeMake(53, 55);
+    mightyMan.position = CGPointMake(80, 70);
+    mightyMan.size = CGSizeMake(67, 60);
     mightyMan.name = @"MightyMan";
     
-    mightyMan.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:mightyMan.size];
+    // There's some blank space, so physics body is smaller
+    mightyMan.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(50, 59)];
     mightyMan.physicsBody.restitution = 0.0;
     mightyMan.physicsBody.mass = 1;
     
