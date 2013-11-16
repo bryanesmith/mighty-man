@@ -123,20 +123,22 @@ float totalCloudDuration = 60.0;
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     self.touch = [touches anyObject];
-//    RCWHamster *hamster = (RCWHamster *)[self childNodeWithName:@"hamster"];
-//    CGPoint innode = [t locationInNode:self];
-//    [hamster applyImpulseToPoint:innode];
-    NSLog(@"DEBUG: touchesBegan");
+    
+    BSMightyMan *mightyMan = (BSMightyMan *)[self childNodeWithName:@"MightyMan"];
+    [mightyMan setRunning];
+    
 }
 
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     self.touch = [touches anyObject];
-     NSLog(@"DEBUG: touchesMoved");
+    
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     self.touch = nil;
-     NSLog(@"DEBUG: touchesEnded");
+    
+    BSMightyMan *mightyMan = (BSMightyMan *)[self childNodeWithName:@"MightyMan"];
+    [mightyMan setStanding];
 }
 
 - (void) didEndContact:(SKPhysicsContact *)contact {

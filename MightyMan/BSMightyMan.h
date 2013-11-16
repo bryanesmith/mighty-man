@@ -10,4 +10,6 @@
 
 @interface BSMightyMan : SKSpriteNode
 + (id) node;
+- (void) setRunning;
+- (void) setStanding;
 @end
