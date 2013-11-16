@@ -18,14 +18,15 @@ static const uint32_t GroundCategory = 0x1 << 1;
 -(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
         
-        UIColor *bgColor = [UIColor colorWithRed:135/255.0
-                                           green:206/255.0
-                                            blue:250.0/255.0
+        UIColor *bgColor = [UIColor colorWithRed:101/255.0
+                                           green:159/255.0
+                                            blue:255.0/255.0
                                            alpha:1.0];
         self.backgroundColor = bgColor;
         
         [self addGround];
         [self addMightyMan];
+        [self addClouds];
         
         self.physicsWorld.gravity = CGVectorMake(0, -1.5); // 0, -2
     }
@@ -59,6 +60,18 @@ static const uint32_t GroundCategory = 0x1 << 1;
         
         [self addChild:ground];
     }
+}
+
+- (void) addClouds {
+    SKSpriteNode *cloud1 = [SKSpriteNode spriteNodeWithImageNamed:@"Cloud1.png"];
+    cloud1.name = @"Cloud1";
+    cloud1.position = CGPointMake(200, 150);
+    [self addChild:cloud1];
+    
+    SKSpriteNode *cloud2 = [SKSpriteNode spriteNodeWithImageNamed:@"Cloud2.png"];
+    cloud2.name = @"Cloud2";
+    cloud2.position = CGPointMake(400, 200);
+    [self addChild:cloud2];
 }
 
 - (void) didEndContact:(SKPhysicsContact *)contact {
