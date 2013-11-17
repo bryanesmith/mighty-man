@@ -15,6 +15,7 @@
 @implementation BSCloud
 
 float totalCloudDuration = 20.0;
+//float totalCloudDuration = 2.0;
 
 + (id) nodeForTextName:(NSString *)textureName at:(CGPoint)point {
     
@@ -38,11 +39,11 @@ float totalCloudDuration = 20.0;
     
     float duration = [self getCloudDurationFromPosition:self.position.x];
     
-    SKAction *move1 = [SKAction moveToX: -offScreenAdj                                   duration:duration];
+    SKAction *move1 = [SKAction moveToX:-offScreenAdj                                   duration:duration];
     SKAction *move2 = [SKAction runBlock:^{
-        [self setPosition: CGPointMake(self.size.width + offScreenAdj, self.position.y)];
+        [self setPosition: CGPointMake([self getLandscapeWidth] + offScreenAdj, self.position.y)];
     }];
-    SKAction *move3 = [SKAction moveToX: -offScreenAdj                                   duration:totalCloudDuration];
+    SKAction *move3 = [SKAction moveToX:-offScreenAdj                                   duration:totalCloudDuration];
     
     SKAction *loop = [SKAction repeatActionForever:[SKAction sequence:@[move2, move3]]];
     
@@ -52,7 +53,12 @@ float totalCloudDuration = 20.0;
 }
 
 - (CGFloat) getCloudDurationFromPosition:(CGFloat) x {
-    return totalCloudDuration * (x / self.size.width);
+    return totalCloudDuration * (x / [self getLandscapeWidth]);
+}
+
+- (float) getLandscapeWidth {
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    return screenRect.size.height; // Since in landscape mode
 }
 
 @end
