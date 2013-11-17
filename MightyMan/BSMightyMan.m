@@ -20,6 +20,7 @@ static CGSize spriteSize;
 + (id) node {
     
     SKTextureAtlas *texture_atlas = [SKTextureAtlas atlasNamed:@"MightyMan"];
+    
     SKTexture *standing = [texture_atlas textureNamed:@"MightyMan1"];
     
     BSMightyMan *mightyMan = [[BSMightyMan alloc] initWithTexture:standing];
@@ -31,6 +32,7 @@ static CGSize spriteSize;
                                  [texture_atlas textureNamed:@"MightyMan3"]];
     
     mightyMan.position = CGPointMake(60, 70);
+    
     spriteSize = CGSizeMake(70, 70);
     mightyMan.size = spriteSize;
     mightyMan.name = @"MightyMan";
@@ -41,24 +43,22 @@ static CGSize spriteSize;
     mightyMan.physicsBody.restitution = 0.0;
     mightyMan.physicsBody.mass = 1;
     
-    
     return mightyMan;
 }
 
 - (void) setRunning {
     [self removeAllActions];
     SKAction *loop = [SKAction repeatActionForever:
-                      [SKAction animateWithTextures:self.runningFrames
-                       timePerFrame:0.1375]];
+                        [SKAction animateWithTextures:self.runningFrames
+                                         timePerFrame:0.1375
+                                               resize:YES
+                                              restore:YES]];
     [self runAction:loop];
 }
 
 -(void) setStanding {
     [self removeAllActions];
     self.texture = self.standingFrame;
-    
-    // TODO: Is this necessary? Was experiencing sporadic skewing.
-    self.size = spriteSize;
 }
 
 @end
