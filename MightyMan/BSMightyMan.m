@@ -8,8 +8,13 @@
 
 #import "BSMightyMan.h"
 
+enum BSMightyManState {
+    BSMightyManRunning,
+    BSMightyManStanding
+};
+
 @interface BSMightyMan ()
-@property NSString *state;
+@property enum BSMightyManState state;
 @property BOOL jumping;
 @property (strong) SKTexture *standingFrame;
 @property (strong) NSArray *runningFrames;
@@ -50,7 +55,7 @@ static CGSize spriteSize;
 
 - (void) setRunning {
     
-    self.state = @"BSRunning";
+    self.state = BSMightyManRunning;
     
     if (!self.jumping) {
         [self removeAllActions];
@@ -66,7 +71,7 @@ static CGSize spriteSize;
 
 -(void) setStanding {
     
-    self.state = @"BSStanding";
+    self.state = BSMightyManStanding;
     
     if (!self.jumping) {
         [self removeAllActions];
@@ -92,7 +97,7 @@ static CGSize spriteSize;
             self.jumping = NO;
             
             // Check if mega man let go during jump
-            if ([self.state isEqualToString:@"BSStanding"]) {
+            if (self.state == BSMightyManStanding) {
                 [self setStanding];
             }
         }];
