@@ -49,7 +49,7 @@ static CGSize spriteSize;
     
     // There's some blank space, so physics body is smaller
     mightyMan.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:spriteSize];
-    mightyMan.physicsBody.restitution = 0.1;
+    mightyMan.physicsBody.restitution = 0.0;
     mightyMan.physicsBody.mass = 1;
     
     return mightyMan;
