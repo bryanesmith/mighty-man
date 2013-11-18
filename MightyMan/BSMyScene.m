@@ -27,7 +27,8 @@ static const uint32_t GroundCategory = 0x1 << 1;
 -(void)update:(NSTimeInterval)currentTime {
     
     if (self.touch) {
-        [self enumerateChildNodesWithName:@"Ground" usingBlock: ^(SKNode *node, BOOL *stop) {
+        [self enumerateChildNodesWithName:@"Ground"
+                               usingBlock: ^(SKNode *node, BOOL *stop) {
             SKSpriteNode *bg = (SKSpriteNode *) node;
             bg.position = CGPointMake(bg.position.x - 3, bg.position.y);
             
@@ -36,6 +37,7 @@ static const uint32_t GroundCategory = 0x1 << 1;
             }
         }];
     }
+    
 }
 
 -(id)initWithSize:(CGSize)size {
@@ -51,7 +53,7 @@ static const uint32_t GroundCategory = 0x1 << 1;
         [self addMightyMan];
         [self addClouds];
         
-        self.physicsWorld.gravity = CGVectorMake(0, -1.5); // 0, -2
+        self.physicsWorld.gravity = CGVectorMake(0, -3); // 0, -2
     }
     return self;
 }
@@ -105,12 +107,21 @@ static const uint32_t GroundCategory = 0x1 << 1;
     
     BSMightyMan *mightyMan = (BSMightyMan *)[self childNodeWithName:@"MightyMan"];
     [mightyMan setRunning];
-    
+    [self testForHighTouch:touches];
 }
 
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     self.touch = [touches anyObject];
-    
+    [self testForHighTouch:touches];
+}
+
+-(void)testForHighTouch:(NSSet *)touches {
+    UITouch *touch = touches.anyObject;
+    CGPoint location = [touch locationInView:touch.view];
+    if (location.y <= 125) {
+        BSMightyMan *mightyMan = (BSMightyMan *)[self childNodeWithName:@"MightyMan"];
+        [mightyMan jump];
+    }
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {

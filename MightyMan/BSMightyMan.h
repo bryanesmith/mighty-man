@@ -9,7 +9,10 @@
 #import <SpriteKit/SpriteKit.h>
 
 @interface BSMightyMan : SKSpriteNode
+
 + (id) node;
 - (void) setRunning;
 - (void) setStanding;
+- (void) jump;
+
 @end
