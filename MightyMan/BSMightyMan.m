@@ -18,6 +18,7 @@ enum BSMightyManState {
 @property BOOL jumping;
 @property (strong) SKTexture *standingFrame;
 @property (strong) NSArray *runningFrames;
+@property (strong) NSArray *jumpingFrames;
 @end
 
 @implementation BSMightyMan
@@ -37,6 +38,7 @@ static CGSize spriteSize;
                                  [texture_atlas textureNamed:@"MightyMan3"],
                                  [texture_atlas textureNamed:@"MightyMan4"],
                                  [texture_atlas textureNamed:@"MightyMan3"]];
+    mightyMan.jumpingFrames = @[ [texture_atlas textureNamed:@"MightyMan5"] ];
     
     mightyMan.position = CGPointMake(60, 70);
     
@@ -89,8 +91,9 @@ static CGSize spriteSize;
         CGVector force = CGVectorMake(0, 300);
         [self.physicsBody applyImpulse:force];
         
-        SKAction *jumping = [SKAction animateWithTextures:self.runningFrames
-                                             timePerFrame:0.35
+        SKAction *jumping = [SKAction animateWithTextures:self.jumpingFrames
+                                             timePerFrame:1.3
+                             
                                                    resize:YES
                                                   restore:YES];
         SKAction *stop = [SKAction runBlock:^{
