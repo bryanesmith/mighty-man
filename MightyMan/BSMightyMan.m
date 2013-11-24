@@ -23,9 +23,6 @@ enum BSMightyManState {
 @end
 
 @implementation BSMightyMan
-
-static CGSize spriteSize;
-
 // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 #pragma mark - BSMightyMan methods
@@ -47,13 +44,14 @@ static CGSize spriteSize;
     
     mightyMan.position = CGPointMake(60, 70);
     
-    spriteSize = CGSizeMake(74, 74);
+    CGSize spriteSize = CGSizeMake(74, 74);
     mightyMan.size = spriteSize;
     mightyMan.name = @"MightyMan";
     mightyMan.zPosition = 1.0;
     
     // There's some blank space, so physics body is smaller
-    mightyMan.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:spriteSize];
+    CGSize physicsSize = CGSizeMake(40, 74);
+    mightyMan.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:physicsSize];
     mightyMan.physicsBody.restitution = 0.0;
     mightyMan.physicsBody.mass = 1;
     
