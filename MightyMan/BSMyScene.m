@@ -117,7 +117,13 @@ static const float CenterScreen = 250.0;
     BOOL rightTouch = [self isRightTouch:touch];
     
     if (rightTouch) {
-        [self performRun];
+        
+        if ([self isHighTouch:self.rightTouch]) {
+            [self performJump];
+        } else {
+            [self performRun];
+        }
+        
     } else {
         [self performShoot];
     }
@@ -129,9 +135,13 @@ static const float CenterScreen = 250.0;
     UITouch *touch = [touches anyObject];
     [self setTouch:touch];
     
+    BOOL rightTouch = [self isRightTouch:touch];
+    
     // Check for jump
-    if ([self isHighTouch:self.rightTouch]) {
-        [self performJump];
+    if (rightTouch) {
+        if ([self isHighTouch:self.rightTouch]) {
+            [self performJump];
+        }
     }
 }
 
@@ -200,14 +210,8 @@ static const float CenterScreen = 250.0;
 }
 
 - (void) performRun {
-    
     BSMightyMan *mightyMan = (BSMightyMan *)[self childNodeWithName:@"MightyMan"];
     [mightyMan performRun];
-    
-    // Check for jump
-    if ([self isHighTouch:self.rightTouch]) {
-        [self performJump];
-    }
 }
 
 - (void) performJump {
