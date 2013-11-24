@@ -42,7 +42,7 @@ static CGSize spriteSize;
     
     mightyMan.position = CGPointMake(60, 70);
     
-    spriteSize = CGSizeMake(70, 70);
+    spriteSize = CGSizeMake(74, 74);
     mightyMan.size = spriteSize;
     mightyMan.name = @"MightyMan";
     mightyMan.zPosition = 1.0;
@@ -93,9 +93,9 @@ static CGSize spriteSize;
         
         SKAction *jumping = [SKAction animateWithTextures:self.jumpingFrames
                                              timePerFrame:1.3
-                             
                                                    resize:YES
                                                   restore:YES];
+        
         SKAction *stop = [SKAction runBlock:^{
             self.jumping = NO;
             
@@ -110,7 +110,11 @@ static CGSize spriteSize;
 }
 
 - (void) performShoot {
-    NSLog(@"DEBUG: pow!");
+    if (self.jumping) {
+        
+    } else {
+        
+    }
 }
 
 @end

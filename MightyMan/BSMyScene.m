@@ -30,6 +30,8 @@ static const uint32_t GroundCategory = 0x1 << 1;
 static const float ScreenLeftRightSplitPos = 250.0;
 static const float ScreenTopBottomSplitPos = 125.0;
 
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
 #pragma mark - SKScene methods
 
 -(void)update:(NSTimeInterval)currentTime {
