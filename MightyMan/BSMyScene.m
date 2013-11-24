@@ -195,10 +195,23 @@ static const float ScreenTopBottomSplitPos = 125.0;
     
     BSMightyMan *mightyMan = (BSMightyMan *)[self childNodeWithName:@"MightyMan"];
     
+    // Update might man
+    [mightyMan performShoot];
+    
     // Add and animate shot
     SKSpriteNode *photon = [SKSpriteNode spriteNodeWithImageNamed:@"photon"];
     photon.name = @"photon";
-    photon.position = mightyMan.position;
+    
+    CGPoint pos = CGPointMake(mightyMan.position.x, mightyMan.position.y);
+    
+    // Voodoo math: align photon with shooter
+    if (mightyMan.isJumping) {
+        pos.y += 7;
+    } else {
+        pos.y -= 7;
+    }
+    
+    photon.position = pos;
     [self addChild:photon];
     
     SKAction *fly = [SKAction moveToX:self.size.width+photon.size.width
@@ -208,8 +221,6 @@ static const float ScreenTopBottomSplitPos = 125.0;
     SKAction *fireAndRemove = [SKAction sequence:@[sound, fly, remove]];
     [photon runAction:fireAndRemove];
     
-    // Update might man
-    [mightyMan performShoot];
 }
 
 - (void) performRun {

@@ -109,12 +109,25 @@ static CGSize spriteSize;
     }
 }
 
+- (BOOL) isJumping {
+    return self.jumping;
+}
+
 - (void) performShoot {
+    
+    SKTextureAtlas *texture_atlas = [SKTextureAtlas atlasNamed:@"MightyMan"];
+    SKTexture *shoot;
     if (self.jumping) {
-        
+        shoot = [texture_atlas textureNamed:@"MightyMan7"];
     } else {
-        
+        shoot = [texture_atlas textureNamed:@"MightyMan6"];
     }
+    
+    SKAction *showShoot = [SKAction animateWithTextures:@[shoot]
+                                          timePerFrame:.2
+                                                resize:YES
+                                               restore:YES];
+    [self runAction:showShoot];
 }
 
 @end
