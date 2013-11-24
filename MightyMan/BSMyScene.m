@@ -49,6 +49,8 @@ static const uint32_t GroundUnitsTotal = 4;
         if (!mightyMan.isGroundShooting) {
             [self performStageAdvances];
         }
+        
+        [self addNecessaryGround];
     }
     
 }
@@ -62,10 +64,7 @@ static const uint32_t GroundUnitsTotal = 4;
                                            alpha:1.0];
         self.backgroundColor = bgColor;
         
-        for (int i = 0; i < GroundUnitsTotal; i++) {
-            [self addGround];
-        }
-        
+        [self addNecessaryGround];
         [self addMightyMan];
         [self addClouds]   ;
         
@@ -88,6 +87,12 @@ static const uint32_t GroundUnitsTotal = 4;
     [self addChild:mightyMan];
 }
 
+- (void) addNecessaryGround {
+    for (int i = self.groundUnits.count; i < GroundUnitsTotal; i++) {
+        [self addGround];
+    }
+}
+
 - (void) addGround {
     
     if (!self.groundUnits) {
@@ -99,7 +104,6 @@ static const uint32_t GroundUnitsTotal = 4;
     int count = atlas.textureNames.count;
     int randomIdx = arc4random() % count;
     NSString *groundName = [atlas.textureNames objectAtIndex:randomIdx];
-    NSLog(@"DEBUG: adding ground sprite \"%@\"", groundName);
     
     SKSpriteNode *ground = [SKSpriteNode spriteNodeWithImageNamed:groundName];
     
@@ -284,10 +288,9 @@ static const uint32_t GroundUnitsTotal = 4;
                                
                                BOOL disappeared = ground.position.x <= -ground.size.width;
                                
-                               // If offscreen, remove and queue up next group
+                               // If offscreen, remove
                                if (disappeared) {
                                    [self removeGround:ground];
-                                   [self addGround];
                                }
                            }];
 }
