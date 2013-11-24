@@ -135,7 +135,7 @@ static const uint32_t GroundUnitsTotal = 4;
                                             at:CGPointMake(200, 150)];
     [self addChild:cloud1];
     
-    BSCloud *cloud2 = [BSCloud nodeForTextName:@"Cloud1"
+    BSCloud *cloud2 = [BSCloud nodeForTextName:@"Cloud2"
                                             at:CGPointMake(350, 200)];
     [self addChild:cloud2];
     
@@ -319,9 +319,7 @@ static const uint32_t GroundUnitsTotal = 4;
         self.groundImageNames = [[NSArray alloc] initWithArray:atlas.textureNames];
         
         // Sort by name so can use 1.jpg as consistent starting texture
-        self.groundImageNames = [self.groundImageNames sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-            return obj1 < obj2;
-        }];
+        self.groundImageNames = [self.groundImageNames sortedArrayUsingSelector:@selector(compare:)];
     }
     
     int randomIdx = 0; // If no images, start with first image
