@@ -129,33 +129,6 @@ static const uint32_t GroundUnitsTotal = 4;
     [self.groundUnits addObject:ground];
 }
 
-- (NSString *) getRandomGroundImageName {
-    
-    if (! self.groundImageNames) {
-        SKTextureAtlas *atlas = [SKTextureAtlas atlasNamed:@"MightyManPlatform"];
-        self.groundImageNames = [[NSArray alloc] initWithArray:atlas.textureNames];
-        
-        // Sort by name so can use 1.jpg as consistent starting texture
-        self.groundImageNames = [self.groundImageNames sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-            return obj1 < obj2;
-        }];
-    }
-    
-    int randomIdx = 0; // If no images, start with first image
-    
-    if (self.groundUnits.count > 0) {
-        int count = self.groundImageNames.count;
-        randomIdx = arc4random() % count;
-    }
-    
-    return [self.groundImageNames objectAtIndex:randomIdx];
-}
-
-- (void) removeGround:(SKSpriteNode *) ground {
-    [self.groundUnits removeObject:ground];
-    [ground removeFromParent];
-}
-
 - (void) addClouds {
     
     BSCloud *cloud1 = [BSCloud nodeForTextName:@"Cloud1"
@@ -169,6 +142,15 @@ static const uint32_t GroundUnitsTotal = 4;
     BSCloud *cloud3 = [BSCloud nodeForTextName:@"Cloud1"
                                             at:CGPointMake(550, 75)];
     [self addChild:cloud3];
+}
+
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+#pragma mark - Removing nodes
+
+- (void) removeGround:(SKSpriteNode *) ground {
+    [self.groundUnits removeObject:ground];
+    [ground removeFromParent];
 }
 
 // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
@@ -225,7 +207,7 @@ static const uint32_t GroundUnitsTotal = 4;
 
 // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
-#pragma mark - UIResponder
+#pragma mark - Set game state
 
 - (void) setTouch:(UITouch *)touch {
     BOOL isRight = [self isRightTouch:touch];
@@ -323,6 +305,33 @@ static const uint32_t GroundUnitsTotal = 4;
 
 - (void) didEndContact:(SKPhysicsContact *)contact {
     NSLog(@"%@ hit %@ with impulse %f", contact.bodyA.node.name, contact.bodyB.node.name, contact.collisionImpulse);
+}
+
+
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+#pragma mark - Random generators
+
+- (NSString *) getRandomGroundImageName {
+    
+    if (! self.groundImageNames) {
+        SKTextureAtlas *atlas = [SKTextureAtlas atlasNamed:@"MightyManPlatform"];
+        self.groundImageNames = [[NSArray alloc] initWithArray:atlas.textureNames];
+        
+        // Sort by name so can use 1.jpg as consistent starting texture
+        self.groundImageNames = [self.groundImageNames sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+            return obj1 < obj2;
+        }];
+    }
+    
+    int randomIdx = 0; // If no images, start with first image
+    
+    if (self.groundUnits.count > 0) {
+        int count = self.groundImageNames.count;
+        randomIdx = arc4random() % count;
+    }
+    
+    return [self.groundImageNames objectAtIndex:randomIdx];
 }
 
 @end
