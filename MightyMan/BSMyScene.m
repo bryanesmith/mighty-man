@@ -24,9 +24,11 @@ static const uint32_t FrameCategory = 0x1 << 1;
 static const uint32_t MightyMan = 0x1 << 2;
 static const uint32_t GroundCategory = 0x1 << 1;
 
+static const float CenterScreen = 250.0;
+
 -(void)update:(NSTimeInterval)currentTime {
     
-    if (self.touch) {
+    if ([self isRightTouch]) {
         [self enumerateChildNodesWithName:@"Ground"
                                usingBlock: ^(SKNode *node, BOOL *stop) {
             SKSpriteNode *bg = (SKSpriteNode *) node;
@@ -51,7 +53,7 @@ static const uint32_t GroundCategory = 0x1 << 1;
         
         [self addGround];
         [self addMightyMan];
-        [self addClouds];
+        [self addClouds]   ;
         
         self.physicsWorld.gravity = CGVectorMake(0, -3); // 0, -2
     }
@@ -103,21 +105,48 @@ static const uint32_t GroundCategory = 0x1 << 1;
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    
     self.touch = [touches anyObject];
     
     BSMightyMan *mightyMan = (BSMightyMan *)[self childNodeWithName:@"MightyMan"];
-    [mightyMan setRunning];
-    [self testForHighTouch:touches];
+    
+    // Right touch
+    if ([self isRightTouch]) {
+        [mightyMan setRunning];
+        [self testForHighTouch];
+    }
+    
+    // Left touch
+    else {
+        [self shoot];
+    }
 }
 
--(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+- (BOOL) isRightTouch {
+    
+    if (self.touch) {
+        CGPoint location = [self.touch locationInView:self.touch.view];
+        return CenterScreen < location.x;
+    }
+    
+    return NO;
+}
+
+- (void)shoot {
+    NSLog(@"DEBUG: shoot");
+    
+    BSMightyMan *mightyMan = (BSMightyMan *)[self childNodeWithName:@"MightyMan"];
+    [mightyMan performShoot];
+}
+
+-(void)touchesMoved:(NSSet *)touches
+          withEvent:(UIEvent *)event {
     self.touch = [touches anyObject];
-    [self testForHighTouch:touches];
+    [self testForHighTouch];
 }
 
--(void)testForHighTouch:(NSSet *)touches {
-    UITouch *touch = touches.anyObject;
-    CGPoint location = [touch locationInView:touch.view];
+-(void)testForHighTouch {
+    CGPoint location = [self.touch locationInView:self.touch.view];
     if (location.y <= 125) {
         BSMightyMan *mightyMan = (BSMightyMan *)[self childNodeWithName:@"MightyMan"];
         [mightyMan jump];

@@ -109,4 +109,8 @@ static CGSize spriteSize;
     }
 }
 
+- (void) performShoot {
+    NSLog(@"DEBUG: pow!");
+}
+
 @end

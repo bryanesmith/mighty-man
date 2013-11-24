@@ -14,5 +14,6 @@
 - (void) setRunning;
 - (void) setStanding;
 - (void) jump;
+- (void) performShoot;
 
 @end
