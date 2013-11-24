@@ -26,6 +26,10 @@ enum BSMightyManState {
 
 static CGSize spriteSize;
 
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+#pragma mark - BSMightyMan methods
+
 + (id) node {
     
     SKTextureAtlas *texture_atlas = [SKTextureAtlas atlasNamed:@"MightyMan"];
@@ -55,6 +59,10 @@ static CGSize spriteSize;
     
     return mightyMan;
 }
+
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+#pragma mark - Perform actions
 
 - (void) performRun {
     
@@ -132,6 +140,10 @@ static CGSize spriteSize;
     
     [self runAction:[SKAction sequence:@[showShoot, stop]]];
 }
+
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+#pragma mark - Test methods
 
 - (BOOL) isJumping {
     return self.jumping;

@@ -255,7 +255,7 @@ static const float ScreenTopBottomSplitPos = 125.0;
 
 // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
-#pragma mark - Handle touches
+#pragma mark - Handle contact
 
 - (void) didEndContact:(SKPhysicsContact *)contact {
     NSLog(@"%@ hit %@ with impulse %f", contact.bodyA.node.name, contact.bodyB.node.name, contact.collisionImpulse);
