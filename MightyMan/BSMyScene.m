@@ -85,7 +85,7 @@ static const uint32_t GroundUnitsTotal = 4;
     
     mightyMan.physicsBody.categoryBitMask = MightyManCategory;
     mightyMan.physicsBody.collisionBitMask = GroundCategory;
-    mightyMan.physicsBody.contactTestBitMask = GroundCategory;
+//    mightyMan.physicsBody.contactTestBitMask = GroundCategory;
     
     [self addChild:mightyMan];
 }
@@ -123,7 +123,7 @@ static const uint32_t GroundUnitsTotal = 4;
     ground.physicsBody.dynamic = NO;
     ground.physicsBody.categoryBitMask = GroundCategory;
     ground.physicsBody.collisionBitMask = MightyManCategory;
-    ground.physicsBody.contactTestBitMask = MightyManCategory;
+//    ground.physicsBody.contactTestBitMask = MightyManCategory;
     
     [self addChild:ground];
     [self.groundUnits addObject:ground];
