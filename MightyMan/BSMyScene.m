@@ -16,6 +16,7 @@
 
 @property (nonatomic, weak) UITouch *rightTouch;
 @property (nonatomic, weak) UITouch *leftTouch;
+@property (nonatomic, strong) NSMutableArray *groundUnits;
 
 @end
 
@@ -30,6 +31,9 @@ static const uint32_t GroundCategory = 0x1 << 1;
 static const float ScreenLeftRightSplitPos = 250.0;
 static const float ScreenTopBottomSplitPos = 125.0;
 
+static const uint32_t GroundUnitsTotal = 4;
+
+
 // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 #pragma mark - SKScene methods
@@ -40,8 +44,6 @@ static const float ScreenTopBottomSplitPos = 125.0;
     if (self.rightTouch) {
         
         BSMightyMan *mightyMan = (BSMightyMan *)[self childNodeWithName:@"MightyMan"];
-        
-        NSLog(@"DEBUG: %@", mightyMan.isGroundShooting ? @"yes" : @"no");
         
         // Don't move if shooting from the ground
         if (!mightyMan.isGroundShooting) {
@@ -60,7 +62,10 @@ static const float ScreenTopBottomSplitPos = 125.0;
                                            alpha:1.0];
         self.backgroundColor = bgColor;
         
-        [self addGround];
+        for (int i = 0; i < GroundUnitsTotal; i++) {
+            [self addGround];
+        }
+        
         [self addMightyMan];
         [self addClouds]   ;
         
@@ -85,21 +90,35 @@ static const float ScreenTopBottomSplitPos = 125.0;
 
 - (void) addGround {
     
-    // http://stackoverflow.com/a/19353158
-    for (int i = 0; i < 2; i++) {
-        SKSpriteNode *ground = [SKSpriteNode spriteNodeWithImageNamed:@"MegaManPlatform.jpg"];
-        
-        ground.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:ground.size];
-        
-//        ground.anchorPoint = CGPointZero;
-        ground.position = CGPointMake(i * ground.size.width, 20);
-        ground.name = @"Ground";
-        ground.physicsBody.dynamic = NO;
-        ground.physicsBody.categoryBitMask = GroundCategory;
-        ground.physicsBody.collisionBitMask = MightyMan;
-        
-        [self addChild:ground];
+    if (!self.groundUnits) {
+        self.groundUnits = [[NSMutableArray alloc] init];
     }
+    
+    SKSpriteNode *ground = [SKSpriteNode spriteNodeWithImageNamed:@"MegaManPlatform1.jpg"];
+    
+    ground.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:ground.size];
+    
+    float x = 0;
+    if (self.groundUnits.count > 0) {
+        SKSpriteNode * lastGround = self.groundUnits.lastObject;
+        x = lastGround.position.x + lastGround.size.width;
+    }
+    
+    ground.position = CGPointMake(x, 20);
+    ground.name = @"Ground";
+    ground.physicsBody.dynamic = NO;
+    ground.physicsBody.categoryBitMask = GroundCategory;
+    ground.physicsBody.collisionBitMask = MightyMan;
+    
+    [self addChild:ground];
+    [self.groundUnits addObject:ground];
+    
+    NSLog(@"DEBUG: Total of %d ground units", self.groundUnits.count);
+}
+
+- (void) removeGround:(SKSpriteNode *) ground {
+    [self.groundUnits removeObject:ground];
+    [ground removeFromParent];
 }
 
 - (void) addClouds {
@@ -213,8 +232,8 @@ static const float ScreenTopBottomSplitPos = 125.0;
     [mightyMan performShoot];
     
     // Add and animate shot
-    SKSpriteNode *photon = [SKSpriteNode spriteNodeWithImageNamed:@"photon"];
-    photon.name = @"photon";
+    SKSpriteNode *photon = [SKSpriteNode spriteNodeWithImageNamed:@"Photon"];
+    photon.name = @"Photon";
     
     CGPoint pos = CGPointMake(mightyMan.position.x, mightyMan.position.y);
     
@@ -251,11 +270,16 @@ static const float ScreenTopBottomSplitPos = 125.0;
     
     [self enumerateChildNodesWithName:@"Ground"
                            usingBlock: ^(SKNode *node, BOOL *stop) {
-                               SKSpriteNode *bg = (SKSpriteNode *) node;
-                               bg.position = CGPointMake(bg.position.x - 3, bg.position.y);
+                               SKSpriteNode *ground = (SKSpriteNode *) node;
+                               ground.position = CGPointMake(ground.position.x - 3, ground.position.y);
                                
-                               if (bg.position.x <= -bg.size.width) {
-                                   bg.position = CGPointMake(bg.position.x + bg.size.width * 2, bg.position.y);
+                               BOOL disappeared = ground.position.x <= -ground.size.width;
+                               
+                               // If offscreen, remove and queue up next group
+                               if (disappeared) {
+                                   NSLog(@"DEBUG: offscreen <width:%f, position:%f>", ground.size.width, ground.position.x);
+                                   [self removeGround:ground];
+                                   [self addGround];
                                }
                            }];
 }
