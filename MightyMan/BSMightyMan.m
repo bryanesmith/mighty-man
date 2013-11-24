@@ -64,12 +64,18 @@ static CGSize spriteSize;
 
 #pragma mark - Perform actions
 
+- (void) performClearActions {
+    [self removeAllActions];
+    self.jumping = NO;
+    self.shooting = NO;
+}
+
 - (void) performRun {
     
     self.state = BSMightyManRunning;
     
     if (!self.jumping) {
-        [self removeAllActions];
+        [self performClearActions];
     }
     
     SKAction *loop = [SKAction repeatActionForever:
@@ -85,7 +91,7 @@ static CGSize spriteSize;
     self.state = BSMightyManStanding;
     
     if (!self.jumping) {
-        [self removeAllActions];
+        [self performClearActions];
         self.texture = self.standingFrame;
     }
 }
@@ -108,7 +114,10 @@ static CGSize spriteSize;
         SKAction *stop = [SKAction runBlock:^{
             self.jumping = NO;
             
-            // Check if mega man let go during jump
+            //
+            // Edge case: check to see whether user removed right
+            //            press during jump,
+            //
             if (self.state == BSMightyManStanding) {
                 [self performStand];
             }
@@ -120,25 +129,28 @@ static CGSize spriteSize;
 
 - (void) performShoot {
     
-    self.shooting = YES;
-    
-    SKTextureAtlas *texture_atlas = [SKTextureAtlas atlasNamed:@"MightyMan"];
-    SKTexture *shoot;
-    if (self.jumping) {
-        shoot = [texture_atlas textureNamed:@"MightyMan7"];
-    } else {
-        shoot = [texture_atlas textureNamed:@"MightyMan6"];
+    if (!self.shooting) {
+        
+        self.shooting = YES;
+        
+        SKTextureAtlas *texture_atlas = [SKTextureAtlas atlasNamed:@"MightyMan"];
+        SKTexture *shoot;
+        if (self.jumping) {
+            shoot = [texture_atlas textureNamed:@"MightyMan7"];
+        } else {
+            shoot = [texture_atlas textureNamed:@"MightyMan6"];
+        }
+        
+        SKAction *showShoot = [SKAction animateWithTextures:@[shoot]
+                                               timePerFrame:.2
+                                                     resize:YES
+                                                    restore:YES];
+        SKAction *stop = [SKAction runBlock:^{
+            self.shooting = NO;
+        }];
+        
+        [self runAction:[SKAction sequence:@[showShoot, stop]]];
     }
-    
-    SKAction *showShoot = [SKAction animateWithTextures:@[shoot]
-                                          timePerFrame:.2
-                                                resize:YES
-                                               restore:YES];
-    SKAction *stop = [SKAction runBlock:^{
-        self.shooting = NO;
-    }];
-    
-    [self runAction:[SKAction sequence:@[showShoot, stop]]];
 }
 
 // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =

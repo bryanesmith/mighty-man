@@ -41,6 +41,8 @@ static const float ScreenTopBottomSplitPos = 125.0;
         
         BSMightyMan *mightyMan = (BSMightyMan *)[self childNodeWithName:@"MightyMan"];
         
+        NSLog(@"DEBUG: %@", mightyMan.isGroundShooting ? @"yes" : @"no");
+        
         // Don't move if shooting from the ground
         if (!mightyMan.isGroundShooting) {
             [self performStageAdvances];
