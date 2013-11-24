@@ -16,6 +16,7 @@ enum BSMightyManState {
 @interface BSMightyMan ()
 @property enum BSMightyManState state;
 @property BOOL jumping;
+@property BOOL shooting;
 @property (strong) SKTexture *standingFrame;
 @property (strong) NSArray *runningFrames;
 @property (strong) NSArray *jumpingFrames;
@@ -109,11 +110,9 @@ static CGSize spriteSize;
     }
 }
 
-- (BOOL) isJumping {
-    return self.jumping;
-}
-
 - (void) performShoot {
+    
+    self.shooting = YES;
     
     SKTextureAtlas *texture_atlas = [SKTextureAtlas atlasNamed:@"MightyMan"];
     SKTexture *shoot;
@@ -127,7 +126,23 @@ static CGSize spriteSize;
                                           timePerFrame:.2
                                                 resize:YES
                                                restore:YES];
-    [self runAction:showShoot];
+    SKAction *stop = [SKAction runBlock:^{
+        self.shooting = NO;
+    }];
+    
+    [self runAction:[SKAction sequence:@[showShoot, stop]]];
+}
+
+- (BOOL) isJumping {
+    return self.jumping;
+}
+
+- (BOOL) isShooting {
+    return self.shooting;
+}
+
+- (BOOL) isGroundShooting {
+    return self.isShooting && !self.isJumping;
 }
 
 @end

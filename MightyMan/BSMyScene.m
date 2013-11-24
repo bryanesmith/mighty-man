@@ -36,8 +36,15 @@ static const float ScreenTopBottomSplitPos = 125.0;
 
 -(void)update:(NSTimeInterval)currentTime {
     
+    // Moving?
     if (self.rightTouch) {
-        [self performStageAdvances];
+        
+        BSMightyMan *mightyMan = (BSMightyMan *)[self childNodeWithName:@"MightyMan"];
+        
+        // Don't move if shooting from the ground
+        if (!mightyMan.isGroundShooting) {
+            [self performStageAdvances];
+        }
     }
     
 }
@@ -234,6 +241,7 @@ static const float ScreenTopBottomSplitPos = 125.0;
 }
 
 - (void) performStageAdvances {
+    
     [self enumerateChildNodesWithName:@"Ground"
                            usingBlock: ^(SKNode *node, BOOL *stop) {
                                SKSpriteNode *bg = (SKSpriteNode *) node;

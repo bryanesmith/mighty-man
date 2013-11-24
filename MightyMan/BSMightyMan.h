@@ -16,5 +16,7 @@
 - (void) performJump;
 - (void) performShoot;
 - (BOOL) isJumping;
+- (BOOL) isShooting;
+- (BOOL) isGroundShooting;
 
 @end
