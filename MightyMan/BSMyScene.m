@@ -14,7 +14,10 @@
 
 @interface BSMyScene ()
 
-@property (nonatomic, weak) UITouch *touch;
+//@property (nonatomic, weak) UITouch *touch;
+
+@property (nonatomic, weak) UITouch *rightTouch;
+@property (nonatomic, weak) UITouch *leftTouch;
 
 @end
 
@@ -26,9 +29,10 @@ static const uint32_t GroundCategory = 0x1 << 1;
 
 static const float CenterScreen = 250.0;
 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -(void)update:(NSTimeInterval)currentTime {
     
-    if ([self isRightTouch]) {
+    if (self.rightTouch) {
         [self enumerateChildNodesWithName:@"Ground"
                                usingBlock: ^(SKNode *node, BOOL *stop) {
             SKSpriteNode *bg = (SKSpriteNode *) node;
@@ -42,6 +46,7 @@ static const float CenterScreen = 250.0;
     
 }
 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
         
@@ -60,6 +65,7 @@ static const float CenterScreen = 250.0;
     return self;
 }
 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 - (void) addMightyMan {
     BSMightyMan *mightyMan = [BSMightyMan node];
     
@@ -70,6 +76,7 @@ static const float CenterScreen = 250.0;
     [self addChild:mightyMan];
 }
 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 - (void) addGround {
     
     // http://stackoverflow.com/a/19353158
@@ -89,6 +96,7 @@ static const float CenterScreen = 250.0;
     }
 }
 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 - (void) addClouds {
     
     BSCloud *cloud1 = [BSCloud nodeForTextName:@"Cloud1"
@@ -104,14 +112,17 @@ static const float CenterScreen = 250.0;
     [self addChild:cloud3];
 }
 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     
-    self.touch = [touches anyObject];
+    UITouch *touch = [touches anyObject];
+    [self setTouch:touch];
     
     BSMightyMan *mightyMan = (BSMightyMan *)[self childNodeWithName:@"MightyMan"];
+    BOOL rightTouch = [self isRightTouch:[touches anyObject]];
     
     // Right touch
-    if ([self isRightTouch]) {
+    if (rightTouch) {
         [mightyMan setRunning];
         [self testForHighTouch];
     }
@@ -122,16 +133,23 @@ static const float CenterScreen = 250.0;
     }
 }
 
-- (BOOL) isRightTouch {
-    
-    if (self.touch) {
-        CGPoint location = [self.touch locationInView:self.touch.view];
-        return CenterScreen < location.x;
-    }
-    
-    return NO;
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+- (BOOL) isRightTouch:(UITouch *)touch {
+    CGPoint location = [touch locationInView:touch.view];
+    return CenterScreen < location.x;
 }
 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+- (void) setTouch:(UITouch *)touch {
+    BOOL isRight = [self isRightTouch:touch];
+    if (isRight) {
+        self.rightTouch = touch;
+    } else {
+        self.leftTouch = touch;
+    }
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 - (void)shoot {
     NSLog(@"DEBUG: shoot");
     
@@ -139,27 +157,39 @@ static const float CenterScreen = 250.0;
     [mightyMan performShoot];
 }
 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -(void)touchesMoved:(NSSet *)touches
           withEvent:(UIEvent *)event {
-    self.touch = [touches anyObject];
+    
+    UITouch *touch = [touches anyObject];
+    [self setTouch:touch];
+    
     [self testForHighTouch];
 }
 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -(void)testForHighTouch {
-    CGPoint location = [self.touch locationInView:self.touch.view];
+    CGPoint location = [self.rightTouch locationInView:self.rightTouch.view];
     if (location.y <= 125) {
         BSMightyMan *mightyMan = (BSMightyMan *)[self childNodeWithName:@"MightyMan"];
         [mightyMan jump];
     }
 }
 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     self.touch = nil;
     
-    BSMightyMan *mightyMan = (BSMightyMan *)[self childNodeWithName:@"MightyMan"];
-    [mightyMan setStanding];
+    UITouch *touch = [touches anyObject];
+    BOOL isRight = [self isRightTouch:touch];
+    
+    if (isRight) {
+        BSMightyMan *mightyMan = (BSMightyMan *)[self childNodeWithName:@"MightyMan"];
+        [mightyMan setStanding];
+    }
 }
 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 - (void) didEndContact:(SKPhysicsContact *)contact {
     NSLog(@"%@ hit %@ with impulse %f", contact.bodyA.node.name, contact.bodyB.node.name, contact.collisionImpulse);
 }
