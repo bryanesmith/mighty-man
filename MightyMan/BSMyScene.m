@@ -14,8 +14,6 @@
 
 @interface BSMyScene ()
 
-//@property (nonatomic, weak) UITouch *touch;
-
 @property (nonatomic, weak) UITouch *rightTouch;
 @property (nonatomic, weak) UITouch *leftTouch;
 
@@ -23,11 +21,14 @@
 
 @implementation BSMyScene
 
+#pragma mark - Constants
+
 static const uint32_t FrameCategory = 0x1 << 1;
 static const uint32_t MightyMan = 0x1 << 2;
 static const uint32_t GroundCategory = 0x1 << 1;
 
-static const float CenterScreen = 250.0;
+static const float ScreenLeftRightSplitPos = 250.0;
+static const float ScreenTopBottomSplitPos = 125.0;
 
 #pragma mark - SKScene methods
 
@@ -176,12 +177,12 @@ static const float CenterScreen = 250.0;
 
 - (BOOL) isRightTouch:(UITouch *)touch {
     CGPoint location = [touch locationInView:touch.view];
-    return CenterScreen < location.x;
+    return ScreenLeftRightSplitPos < location.x;
 }
 
 - (BOOL) isHighTouch:(UITouch *)touch {
     CGPoint location = [self.rightTouch locationInView:self.rightTouch.view];
-    return location.y <= 125;
+    return location.y <= ScreenTopBottomSplitPos;
 }
 
 // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
