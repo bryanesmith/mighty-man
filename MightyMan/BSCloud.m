@@ -27,7 +27,7 @@ float totalCloudDuration = 20.0;
     
     cloud.name = @"Cloud";
     cloud.position = point;
-    cloud.zPosition = 0.0;
+    cloud.zPosition = -1.0;
     
     [cloud moveCloud];
     

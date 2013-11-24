@@ -94,7 +94,14 @@ static const uint32_t GroundUnitsTotal = 4;
         self.groundUnits = [[NSMutableArray alloc] init];
     }
     
-    SKSpriteNode *ground = [SKSpriteNode spriteNodeWithImageNamed:@"MegaManPlatform1.jpg"];
+    // Randomly pick a platform
+    SKTextureAtlas *atlas = [SKTextureAtlas atlasNamed:@"MightyManPlatform"];
+    int count = atlas.textureNames.count;
+    int randomIdx = arc4random() % count;
+    NSString *groundName = [atlas.textureNames objectAtIndex:randomIdx];
+    NSLog(@"DEBUG: adding ground sprite \"%@\"", groundName);
+    
+    SKSpriteNode *ground = [SKSpriteNode spriteNodeWithImageNamed:groundName];
     
     ground.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:ground.size];
     
@@ -102,9 +109,13 @@ static const uint32_t GroundUnitsTotal = 4;
     if (self.groundUnits.count > 0) {
         SKSpriteNode * lastGround = self.groundUnits.lastObject;
         x = lastGround.position.x + lastGround.size.width;
+    } else {
+        x = ground.size.width / 2;
     }
     
-    ground.position = CGPointMake(x, 20);
+    //float y = 20;
+    float y = ground.size.height / 2;
+    ground.position = CGPointMake(x, y);
     ground.name = @"Ground";
     ground.physicsBody.dynamic = NO;
     ground.physicsBody.categoryBitMask = GroundCategory;
@@ -112,8 +123,6 @@ static const uint32_t GroundUnitsTotal = 4;
     
     [self addChild:ground];
     [self.groundUnits addObject:ground];
-    
-    NSLog(@"DEBUG: Total of %d ground units", self.groundUnits.count);
 }
 
 - (void) removeGround:(SKSpriteNode *) ground {
@@ -277,7 +286,6 @@ static const uint32_t GroundUnitsTotal = 4;
                                
                                // If offscreen, remove and queue up next group
                                if (disappeared) {
-                                   NSLog(@"DEBUG: offscreen <width:%f, position:%f>", ground.size.width, ground.position.x);
                                    [self removeGround:ground];
                                    [self addGround];
                                }
