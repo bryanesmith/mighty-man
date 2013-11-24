@@ -142,14 +142,15 @@ static CGSize spriteSize;
         }
         
         SKAction *showShoot = [SKAction animateWithTextures:@[shoot]
-                                               timePerFrame:.2
+                                               timePerFrame:.35
                                                      resize:YES
                                                     restore:YES];
-        SKAction *stop = [SKAction runBlock:^{
+        
+        SKAction *end = [SKAction runBlock:^{
             self.shooting = NO;
         }];
         
-        [self runAction:[SKAction sequence:@[showShoot, stop]]];
+        [self runAction:[SKAction sequence:@[showShoot, end]]];
     }
 }
 

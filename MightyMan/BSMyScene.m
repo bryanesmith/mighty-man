@@ -204,6 +204,11 @@ static const float ScreenTopBottomSplitPos = 125.0;
     
     BSMightyMan *mightyMan = (BSMightyMan *)[self childNodeWithName:@"MightyMan"];
     
+    // Prevent rapid fire
+    if (mightyMan.isShooting) {
+        return;
+    }
+    
     // Update might man
     [mightyMan performShoot];
     
