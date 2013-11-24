@@ -17,6 +17,7 @@
 @property (nonatomic, weak) UITouch *rightTouch;
 @property (nonatomic, weak) UITouch *leftTouch;
 @property (nonatomic, strong) NSMutableArray *groundUnits;
+@property (nonatomic, strong) NSArray *groundImageNames;
 
 @end
 
@@ -25,7 +26,7 @@
 #pragma mark - Constants
 
 static const uint32_t FrameCategory = 0x1 << 1;
-static const uint32_t MightyMan = 0x1 << 2;
+static const uint32_t MightyManCategory = 0x1 << 2;
 static const uint32_t GroundCategory = 0x1 << 1;
 
 static const float ScreenLeftRightSplitPos = 250.0;
@@ -69,6 +70,8 @@ static const uint32_t GroundUnitsTotal = 4;
         [self addClouds]   ;
         
         self.physicsWorld.gravity = CGVectorMake(0, -3); // 0, -2
+        
+        self.physicsWorld.contactDelegate = self;
     }
     return self;
 }
@@ -80,14 +83,19 @@ static const uint32_t GroundUnitsTotal = 4;
 - (void) addMightyMan {
     BSMightyMan *mightyMan = [BSMightyMan node];
     
-    mightyMan.physicsBody.categoryBitMask = MightyMan;
+    mightyMan.physicsBody.categoryBitMask = MightyManCategory;
     mightyMan.physicsBody.collisionBitMask = GroundCategory;
-//    mightyMan.contactTestBitMask = ...;
+    mightyMan.physicsBody.contactTestBitMask = GroundCategory;
     
     [self addChild:mightyMan];
 }
 
 - (void) addNecessaryGround {
+    
+    if (!self.groundUnits) {
+        self.groundUnits = [[NSMutableArray alloc] init];
+    }
+    
     for (int i = self.groundUnits.count; i < GroundUnitsTotal; i++) {
         [self addGround];
     }
@@ -95,17 +103,8 @@ static const uint32_t GroundUnitsTotal = 4;
 
 - (void) addGround {
     
-    if (!self.groundUnits) {
-        self.groundUnits = [[NSMutableArray alloc] init];
-    }
-    
-    // Randomly pick a platform
-    SKTextureAtlas *atlas = [SKTextureAtlas atlasNamed:@"MightyManPlatform"];
-    int count = atlas.textureNames.count;
-    int randomIdx = arc4random() % count;
-    NSString *groundName = [atlas.textureNames objectAtIndex:randomIdx];
-    
-    SKSpriteNode *ground = [SKSpriteNode spriteNodeWithImageNamed:groundName];
+    NSString *imgName = [self getRandomGroundImageName];
+    SKSpriteNode *ground = [SKSpriteNode spriteNodeWithImageNamed:imgName];
     
     ground.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:ground.size];
     
@@ -123,10 +122,33 @@ static const uint32_t GroundUnitsTotal = 4;
     ground.name = @"Ground";
     ground.physicsBody.dynamic = NO;
     ground.physicsBody.categoryBitMask = GroundCategory;
-    ground.physicsBody.collisionBitMask = MightyMan;
+    ground.physicsBody.collisionBitMask = MightyManCategory;
+    ground.physicsBody.contactTestBitMask = MightyManCategory;
     
     [self addChild:ground];
     [self.groundUnits addObject:ground];
+}
+
+- (NSString *) getRandomGroundImageName {
+    
+    if (! self.groundImageNames) {
+        SKTextureAtlas *atlas = [SKTextureAtlas atlasNamed:@"MightyManPlatform"];
+        self.groundImageNames = [[NSArray alloc] initWithArray:atlas.textureNames];
+        
+        // Sort by name so can use 1.jpg as consistent starting texture
+        self.groundImageNames = [self.groundImageNames sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+            return obj1 < obj2;
+        }];
+    }
+    
+    int randomIdx = 0; // If no images, start with first image
+    
+    if (self.groundUnits.count > 0) {
+        int count = self.groundImageNames.count;
+        randomIdx = arc4random() % count;
+    }
+    
+    return [self.groundImageNames objectAtIndex:randomIdx];
 }
 
 - (void) removeGround:(SKSpriteNode *) ground {
