@@ -55,7 +55,7 @@ static CGSize spriteSize;
     return mightyMan;
 }
 
-- (void) setRunning {
+- (void) performRun {
     
     self.state = BSMightyManRunning;
     
@@ -71,7 +71,7 @@ static CGSize spriteSize;
     [self runAction:loop];
 }
 
--(void) setStanding {
+-(void) performStand {
     
     self.state = BSMightyManStanding;
     
@@ -81,7 +81,7 @@ static CGSize spriteSize;
     }
 }
 
-- (void) jump {
+- (void) performJump {
     
     if (!self.jumping) {
         
@@ -101,7 +101,7 @@ static CGSize spriteSize;
             
             // Check if mega man let go during jump
             if (self.state == BSMightyManStanding) {
-                [self setStanding];
+                [self performStand];
             }
         }];
         

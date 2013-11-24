@@ -123,7 +123,7 @@ static const float CenterScreen = 250.0;
     
     // Right touch
     if (rightTouch) {
-        [mightyMan setRunning];
+        [mightyMan performRun];
         [self testForHighTouch];
     }
     
@@ -172,7 +172,7 @@ static const float CenterScreen = 250.0;
     CGPoint location = [self.rightTouch locationInView:self.rightTouch.view];
     if (location.y <= 125) {
         BSMightyMan *mightyMan = (BSMightyMan *)[self childNodeWithName:@"MightyMan"];
-        [mightyMan jump];
+        [mightyMan performJump];
     }
 }
 
@@ -185,7 +185,7 @@ static const float CenterScreen = 250.0;
     
     if (isRight) {
         BSMightyMan *mightyMan = (BSMightyMan *)[self childNodeWithName:@"MightyMan"];
-        [mightyMan setStanding];
+        [mightyMan performStand];
     }
 }
 

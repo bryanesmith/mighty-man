@@ -11,9 +11,9 @@
 @interface BSMightyMan : SKSpriteNode
 
 + (id) node;
-- (void) setRunning;
-- (void) setStanding;
-- (void) jump;
+- (void) performRun;
+- (void) performStand;
+- (void) performJump;
 - (void) performShoot;
 
 @end
