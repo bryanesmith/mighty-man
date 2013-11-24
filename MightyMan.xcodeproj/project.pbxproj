@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		481E87EA18383498005CBEC4 /* BSCloud.m in Sources */ = {isa = PBXBuildFile; fileRef = 481E87E918383498005CBEC4 /* BSCloud.m */; };
-		485846AE1839C09A004D4996 /* MightyMan.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 485846AD1839C09A004D4996 /* MightyMan.atlas */; };
+		4830D6D118426F0B0097EEEE /* MightyMan.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 4830D6D018426F0B0097EEEE /* MightyMan.atlas */; };
+		4830D6D5184270200097EEEE /* shoot.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 4830D6D4184270200097EEEE /* shoot.m4a */; };
 		48A2B6B518359B3E00441532 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A2B6B418359B3E00441532 /* Foundation.framework */; };
 		48A2B6B718359B3E00441532 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A2B6B618359B3E00441532 /* CoreGraphics.framework */; };
 		48A2B6B918359B3E00441532 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A2B6B818359B3E00441532 /* UIKit.framework */; };
@@ -41,7 +42,8 @@
 /* Begin PBXFileReference section */
 		481E87E818383498005CBEC4 /* BSCloud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSCloud.h; sourceTree = "<group>"; };
 		481E87E918383498005CBEC4 /* BSCloud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSCloud.m; sourceTree = "<group>"; };
-		485846AD1839C09A004D4996 /* MightyMan.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = MightyMan.atlas; sourceTree = "<group>"; };
+		4830D6D018426F0B0097EEEE /* MightyMan.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = MightyMan.atlas; sourceTree = "<group>"; };
+		4830D6D4184270200097EEEE /* shoot.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = shoot.m4a; sourceTree = "<group>"; };
 		48A2B6B118359B3E00441532 /* MightyMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MightyMan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48A2B6B418359B3E00441532 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		48A2B6B618359B3E00441532 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -104,6 +106,15 @@
 			name = Data;
 			sourceTree = "<group>";
 		};
+		4830D6D318426FC10097EEEE /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				4830D6D4184270200097EEEE /* shoot.m4a */,
+				4830D6D018426F0B0097EEEE /* MightyMan.atlas */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
 		48A2B6A818359B3E00441532 = {
 			isa = PBXGroup;
 			children = (
@@ -138,7 +149,6 @@
 		48A2B6BC18359B3E00441532 /* MightyMan */ = {
 			isa = PBXGroup;
 			children = (
-				485846AD1839C09A004D4996 /* MightyMan.atlas */,
 				48A2B6C518359B3E00441532 /* BSAppDelegate.h */,
 				48A2B6C618359B3E00441532 /* BSAppDelegate.m */,
 				48A2B6C818359B3E00441532 /* Main.storyboard */,
@@ -146,9 +156,10 @@
 				48A2B6CC18359B3E00441532 /* BSViewController.m */,
 				48A2B6CE18359B3E00441532 /* BSMyScene.h */,
 				48A2B6CF18359B3E00441532 /* BSMyScene.m */,
+				481E87E518383304005CBEC4 /* Data */,
+				4830D6D318426FC10097EEEE /* Assets */,
 				48A2B6D318359B3E00441532 /* Images.xcassets */,
 				48A2B6BD18359B3E00441532 /* Supporting Files */,
-				481E87E518383304005CBEC4 /* Data */,
 			);
 			path = MightyMan;
 			sourceTree = "<group>";
@@ -259,7 +270,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				485846AE1839C09A004D4996 /* MightyMan.atlas in Resources */,
+				4830D6D5184270200097EEEE /* shoot.m4a in Resources */,
+				4830D6D118426F0B0097EEEE /* MightyMan.atlas in Resources */,
 				48A2B6C118359B3E00441532 /* InfoPlist.strings in Resources */,
 				48A2B6D418359B3E00441532 /* Images.xcassets in Resources */,
 				48A2B6CA18359B3E00441532 /* Main.storyboard in Resources */,

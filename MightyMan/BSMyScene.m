@@ -179,7 +179,23 @@ static const float CenterScreen = 250.0;
 #pragma mark - Perform actions
 
 - (void) performShoot {
+    
     BSMightyMan *mightyMan = (BSMightyMan *)[self childNodeWithName:@"MightyMan"];
+    
+    // Add and animate shot
+    SKSpriteNode *photon = [SKSpriteNode spriteNodeWithImageNamed:@"photon"];
+    photon.name = @"photon";
+    photon.position = mightyMan.position;
+    [self addChild:photon];
+    
+    SKAction *fly = [SKAction moveToX:self.size.width+photon.size.width
+                             duration:1];
+    SKAction *remove = [SKAction removeFromParent];
+    SKAction *sound = [SKAction playSoundFileNamed:@"shoot.m4a" waitForCompletion:NO];
+    SKAction *fireAndRemove = [SKAction sequence:@[sound, fly, remove]];
+    [photon runAction:fireAndRemove];
+    
+    // Update might man
     [mightyMan performShoot];
 }
 
