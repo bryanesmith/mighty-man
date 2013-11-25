@@ -7,6 +7,7 @@
 //
 
 #import "BSMyScene.h"
+#import "SKSpriteNode+Positions.h"
 
 // Import: Data
 #import "BSMightyMan.h"
@@ -46,7 +47,20 @@ static const uint32_t GroundUnitsTotal = 4;
         
         BSMightyMan *mightyMan = (BSMightyMan *)[self childNodeWithName:@"MightyMan"];
         
-        // Don't move if shooting from the ground
+        
+        if (self.groundUnits.count >= 2) {
+            // Only care about second, since it is the only ground that can act as a wall
+            // (so long as mighty man can only move forward)
+            SKSpriteNode * wall = [self.groundUnits objectAtIndex:1];
+
+            float mmX = mightyMan.rightPosition;
+            float mmY = mightyMan.bottomPosition;
+            float wX = wall.leftPosition;
+            float wY = wall.topPosition;
+            NSLog(@"DEBUG: [%f,%f] vs [%f,%f]", mmX, mmY, wX, wY);
+        }
+        
+        // Don't move if shooting from the ground or if touching wall
         if (!mightyMan.isGroundShooting) {
             [self performStageAdvances];
         }
@@ -116,7 +130,6 @@ static const uint32_t GroundUnitsTotal = 4;
         x = ground.size.width / 2;
     }
     
-    //float y = 20;
     float y = ground.size.height / 2;
     ground.position = CGPointMake(x, y);
     ground.name = @"Ground";

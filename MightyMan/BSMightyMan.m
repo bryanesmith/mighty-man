@@ -7,6 +7,7 @@
 //
 
 #import "BSMightyMan.h"
+#import "SKSpriteNode+Positions.h"
 
 enum BSMightyManState {
     BSMightyManRunning,
@@ -17,9 +18,10 @@ enum BSMightyManState {
 @property enum BSMightyManState state;
 @property BOOL jumping;
 @property BOOL shooting;
-@property (strong) SKTexture *standingFrame;
-@property (strong) NSArray *runningFrames;
-@property (strong) NSArray *jumpingFrames;
+@property (strong, nonatomic) SKTexture *standingFrame;
+@property (strong, nonatomic) NSArray *runningFrames;
+@property (strong, nonatomic) NSArray *jumpingFrames;
+@property (assign, nonatomic) CGSize physicsBodySize;
 @end
 
 @implementation BSMightyMan
@@ -50,12 +52,41 @@ enum BSMightyManState {
     mightyMan.zPosition = 1.0;
     
     // There's some blank space, so physics body is smaller
-    CGSize physicsSize = CGSizeMake(40, 74);
-    mightyMan.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:physicsSize];
+    mightyMan.physicsBodySize = CGSizeMake(40, 74);
+    mightyMan.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:mightyMan.physicsBodySize];
     mightyMan.physicsBody.restitution = 0.0;
     mightyMan.physicsBody.mass = 1;
     
     return mightyMan;
+}
+
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+#pragma mark - Override SKSpriteNode.Positions category
+
+//
+// NOTE: Because as far as I can tell (1) can't retrieve size from SKPhysicsBody and
+//       (2) can't store structs in categories, the category uses the size of the SKNode
+//       instead of the SKPhysicsBody.
+//
+//       That means that if the size of the physics body doesn't match the node, need
+//       to override the values, as I do here. Major bummer. =(
+//
+
+-(float)leftPosition {
+    return self.position.x - self.physicsBodySize.width / 2;
+}
+
+-(float)rightPosition {
+    return self.position.x + self.physicsBodySize.width / 2;
+}
+
+-(float)bottomPosition {
+    return self.position.y - self.physicsBodySize.height / 2;
+}
+
+-(float)topPosition {
+    return self.position.y + self.physicsBodySize.height / 2;
 }
 
 // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =

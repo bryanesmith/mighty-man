@@ -11,6 +11,7 @@
 		4830D6D5184270200097EEEE /* shoot.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 4830D6D4184270200097EEEE /* shoot.m4a */; };
 		4830D6E0184288C20097EEEE /* MightyMan.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 4830D6DE184288C20097EEEE /* MightyMan.atlas */; };
 		4830D6E7184291CB0097EEEE /* MightyManPlatform.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 4830D6E6184291CB0097EEEE /* MightyManPlatform.atlas */; };
+		4830D6EF18438CA00097EEEE /* SKSpriteNode+Positions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4830D6EE18438CA00097EEEE /* SKSpriteNode+Positions.m */; };
 		48A2B6B518359B3E00441532 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A2B6B418359B3E00441532 /* Foundation.framework */; };
 		48A2B6B718359B3E00441532 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A2B6B618359B3E00441532 /* CoreGraphics.framework */; };
 		48A2B6B918359B3E00441532 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A2B6B818359B3E00441532 /* UIKit.framework */; };
@@ -46,6 +47,8 @@
 		4830D6D4184270200097EEEE /* shoot.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = shoot.m4a; sourceTree = "<group>"; };
 		4830D6DE184288C20097EEEE /* MightyMan.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = MightyMan.atlas; sourceTree = "<group>"; };
 		4830D6E6184291CB0097EEEE /* MightyManPlatform.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = MightyManPlatform.atlas; sourceTree = "<group>"; };
+		4830D6ED18438CA00097EEEE /* SKSpriteNode+Positions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKSpriteNode+Positions.h"; sourceTree = "<group>"; };
+		4830D6EE18438CA00097EEEE /* SKSpriteNode+Positions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKSpriteNode+Positions.m"; sourceTree = "<group>"; };
 		48A2B6B118359B3E00441532 /* MightyMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MightyMan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48A2B6B418359B3E00441532 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		48A2B6B618359B3E00441532 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -118,6 +121,27 @@
 			name = Assets;
 			sourceTree = "<group>";
 		};
+		4830D6E818438B130097EEEE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				48A2B6C818359B3E00441532 /* Main.storyboard */,
+				48A2B6CB18359B3E00441532 /* BSViewController.h */,
+				48A2B6CC18359B3E00441532 /* BSViewController.m */,
+				48A2B6CE18359B3E00441532 /* BSMyScene.h */,
+				48A2B6CF18359B3E00441532 /* BSMyScene.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		4830D6E918438B1D0097EEEE /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				4830D6ED18438CA00097EEEE /* SKSpriteNode+Positions.h */,
+				4830D6EE18438CA00097EEEE /* SKSpriteNode+Positions.m */,
+			);
+			name = Category;
+			sourceTree = "<group>";
+		};
 		48A2B6A818359B3E00441532 = {
 			isa = PBXGroup;
 			children = (
@@ -154,11 +178,8 @@
 			children = (
 				48A2B6C518359B3E00441532 /* BSAppDelegate.h */,
 				48A2B6C618359B3E00441532 /* BSAppDelegate.m */,
-				48A2B6C818359B3E00441532 /* Main.storyboard */,
-				48A2B6CB18359B3E00441532 /* BSViewController.h */,
-				48A2B6CC18359B3E00441532 /* BSViewController.m */,
-				48A2B6CE18359B3E00441532 /* BSMyScene.h */,
-				48A2B6CF18359B3E00441532 /* BSMyScene.m */,
+				4830D6E918438B1D0097EEEE /* Category */,
+				4830D6E818438B130097EEEE /* View */,
 				481E87E518383304005CBEC4 /* Data */,
 				4830D6D318426FC10097EEEE /* Assets */,
 				48A2B6D318359B3E00441532 /* Images.xcassets */,
@@ -303,6 +324,7 @@
 				48A2B6D018359B3E00441532 /* BSMyScene.m in Sources */,
 				481E87EA18383498005CBEC4 /* BSCloud.m in Sources */,
 				48D3D4F01835D0A60030F37A /* BSMightyMan.m in Sources */,
+				4830D6EF18438CA00097EEEE /* SKSpriteNode+Positions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
